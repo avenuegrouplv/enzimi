@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+:root {
+  --enzimi-cream: #FAF9F5;
+  --enzimi-sand: #E8EFEA;
+  --enzimi-brown-light: #9E6723;
+  --enzimi-brown-border: #D3DDD6;
+  --enzimi-brown-medium: #1E3E2B;
+  --enzimi-brown-dark: #142B1E;
+  --enzimi-espresso: #19261E;
+  --enzimi-taupe: #485950;
+}
+
+body, html, #root {
+  background-color: #FAF9F5 !important;
+  color: #19261E !important;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings with warm Playfair Display serif or clean Jakarta display */
+h1, h2, h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  letter-spacing: -0.02em;
+  color: #19261E;
+}
+
+.font-serif-title {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Smooth glass effect for header */
+.header-glass {
+  background: rgba(250, 249, 245, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D5A3F;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1E3E2B;
+}
+
+/* Soft card hover shadow - NO motion/translate */
+.card-soft-shadow {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 16px -4px rgba(25, 38, 30, 0.06);
+}
+
+.card-soft-shadow:hover {
+  box-shadow: 0 8px 24px -6px rgba(25, 38, 30, 0.12);
+  border-color: #D3DDD6;
+}
+
+/* Shimmer effect for CTA buttons */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}

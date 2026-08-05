@@ -1,0 +1,6 @@
+{
+  "name": "Enzimi",
+  "description": "Dabisku fermentētu enzīmu dzērienu e-veikals, ražošanas komplekti un apmācības.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
