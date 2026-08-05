@@ -24,16 +24,16 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#D3DDD6] card-soft-shadow">
+    <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow">
       {isSubmitted ? (
         <div className="text-center py-12 space-y-4 animate-in fade-in duration-300">
-          <div className="w-16 h-16 rounded-full bg-[#2A9D8F]/20 text-[#2A9D8F] flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-full bg-[#16A34A]/20 text-[#16A34A] flex items-center justify-center mx-auto">
             <CheckCircle2 className="w-10 h-10" />
           </div>
-          <h3 className="font-serif-title text-2xl font-bold text-[#19261E]">
+          <h3 className="font-serif-title text-2xl font-bold text-[#122E1F]">
             Ziņa Veiksmīgi Nosūtīta!
           </h3>
-          <p className="text-xs text-[#485950] max-w-sm mx-auto leading-relaxed">
+          <p className="text-xs text-[#2E523A] max-w-sm mx-auto leading-relaxed">
             {t.contactSection.successMessage}
           </p>
           <button
@@ -41,7 +41,7 @@ export const ContactForm: React.FC = () => {
               setIsSubmitted(false);
               setFormData({ name: '', email: '', phone: '', message: '', interest: 'produktus' });
             }}
-            className="px-6 py-2.5 rounded-xl bg-[#E8EFEA] text-[#19261E] text-xs font-bold hover:bg-[#D3DDD6] transition-colors"
+            className="px-6 py-2.5 rounded-xl bg-[#E5F4E9] text-[#122E1F] text-xs font-bold hover:bg-[#CDE8D5] transition-colors"
           >
             Nosūtīt vēl vienu ziņu
           </button>
@@ -50,7 +50,7 @@ export const ContactForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#19261E] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#122E1F] mb-1.5">
                 {t.contactSection.nameLabel} *
               </label>
               <input
@@ -59,12 +59,12 @@ export const ContactForm: React.FC = () => {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder={t.contactSection.namePlaceholder}
-                className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#D3DDD6] text-xs text-[#19261E] focus:outline-none focus:border-[#1E3E2B] transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044] transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#19261E] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#122E1F] mb-1.5">
                 {t.contactSection.emailLabel} *
               </label>
               <input
@@ -73,13 +73,13 @@ export const ContactForm: React.FC = () => {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder={t.contactSection.emailPlaceholder}
-                className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#D3DDD6] text-xs text-[#19261E] focus:outline-none focus:border-[#1E3E2B] transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044] transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#19261E] mb-1.5">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#122E1F] mb-1.5">
               {t.contactSection.phoneLabel}
             </label>
             <input
@@ -87,12 +87,12 @@ export const ContactForm: React.FC = () => {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder={t.contactSection.phonePlaceholder}
-              className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#D3DDD6] text-xs text-[#19261E] focus:outline-none focus:border-[#1E3E2B] transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044] transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#19261E] mb-1.5">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#122E1F] mb-1.5">
               {t.contactSection.messageLabel} *
             </label>
             <textarea
@@ -101,14 +101,14 @@ export const ContactForm: React.FC = () => {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder={t.contactSection.messagePlaceholder}
-              className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#D3DDD6] text-xs text-[#19261E] focus:outline-none focus:border-[#1E3E2B] transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044] transition-colors resize-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-xl bg-[#1E3E2B] text-white font-bold text-sm hover:bg-[#142B1E] transition-all shadow-xs flex items-center justify-center gap-2 btn-shimmer"
+            className="w-full py-3.5 px-6 rounded-xl bg-[#1B8044] text-white font-bold text-sm hover:bg-[#146334] transition-all shadow-xs flex items-center justify-center gap-2 btn-shimmer"
           >
             <Send className="w-4 h-4" />
             <span>{isSubmitting ? t.contactSection.sendingBtn : t.contactSection.submitBtn}</span>

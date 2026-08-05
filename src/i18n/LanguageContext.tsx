@@ -5,7 +5,7 @@ import { ROUTE_MAP, getPageKeyAndLangFromPath } from "./routes";
 import { lvTranslations } from "./translations/lv";
 import { enTranslations } from "./translations/en";
 import { ruTranslations } from "./translations/ru";
-import { CartItem, Product } from "../types";
+import { CartItem, Product, VolumeOption, VOLUME_PRICES } from "../types";
 
 interface LanguageContextType {
   lang: Language;
@@ -14,9 +14,10 @@ interface LanguageContextType {
   switchLanguage: (targetLang: Language) => void;
   getLocalizedPath: (key: PageKey) => string;
   cart: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: string) => void;
-  updateCartQuantity: (productId: string, delta: number) => void;
+  addToCart: (product: Product, volume?: VolumeOption, quantity?: number) => void;
+  removeFromCart: (productId: string, volume: VolumeOption) => void;
+  updateCartQuantity: (productId: string, volume: VolumeOption, delta: number) => void;
+  updateCartItemVolume: (productId: string, oldVolume: VolumeOption, newVolume: VolumeOption) => void;
   clearCart: () => void;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
@@ -56,30 +57,35 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, [cart]);
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, volume: VolumeOption = '750ml', quantity: number = 1) => {
+    const unitPrice = VOLUME_PRICES[volume] || product.price || 12.99;
     setCart((prev) => {
-      const existing = prev.find((item) => item.product.id === product.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+      const existingIndex = prev.findIndex(
+        (item) => item.product.id === product.id && item.selectedVolume === volume
+      );
+      if (existingIndex > -1) {
+        return prev.map((item, idx) =>
+          idx === existingIndex
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       }
-      return [...prev, { product, quantity: 1 }];
+      return [...prev, { product, selectedVolume: volume, unitPrice, quantity }];
     });
     setIsCartOpen(true);
   };
 
-  const removeFromCart = (productId: string) => {
-    setCart((prev) => prev.filter((item) => item.product.id !== productId));
+  const removeFromCart = (productId: string, volume: VolumeOption) => {
+    setCart((prev) =>
+      prev.filter((item) => !(item.product.id === productId && item.selectedVolume === volume))
+    );
   };
 
-  const updateCartQuantity = (productId: string, delta: number) => {
+  const updateCartQuantity = (productId: string, volume: VolumeOption, delta: number) => {
     setCart((prev) =>
       prev
         .map((item) => {
-          if (item.product.id === productId) {
+          if (item.product.id === productId && item.selectedVolume === volume) {
             const newQty = item.quantity + delta;
             return newQty > 0 ? { ...item, quantity: newQty } : null;
           }
@@ -87,6 +93,42 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         })
         .filter(Boolean) as CartItem[]
     );
+  };
+
+  const updateCartItemVolume = (productId: string, oldVolume: VolumeOption, newVolume: VolumeOption) => {
+    if (oldVolume === newVolume) return;
+    const newUnitPrice = VOLUME_PRICES[newVolume];
+    setCart((prev) => {
+      const targetItem = prev.find(
+        (item) => item.product.id === productId && item.selectedVolume === oldVolume
+      );
+      if (!targetItem) return prev;
+
+      const filtered = prev.filter(
+        (item) => !(item.product.id === productId && item.selectedVolume === oldVolume)
+      );
+
+      const existingNewIndex = filtered.findIndex(
+        (item) => item.product.id === productId && item.selectedVolume === newVolume
+      );
+
+      if (existingNewIndex > -1) {
+        return filtered.map((item, idx) =>
+          idx === existingNewIndex
+            ? { ...item, quantity: item.quantity + targetItem.quantity }
+            : item
+        );
+      }
+
+      return [
+        ...filtered,
+        {
+          ...targetItem,
+          selectedVolume: newVolume,
+          unitPrice: newUnitPrice,
+        },
+      ];
+    });
   };
 
   const clearCart = () => {
@@ -98,7 +140,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [cart]);
 
   const cartTotal = useMemo(() => {
-    return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    return cart.reduce((acc, item) => acc + (item.unitPrice || 12.99) * item.quantity, 0);
   }, [cart]);
 
   const { lang, pageKey } = useMemo(() => {
@@ -135,6 +177,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         addToCart,
         removeFromCart,
         updateCartQuantity,
+        updateCartItemVolume,
         clearCart,
         isCartOpen,
         setIsCartOpen,

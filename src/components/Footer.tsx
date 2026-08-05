@@ -7,42 +7,42 @@ export const Footer: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
 
   return (
-    <footer className="bg-[#E8EFEA] border-t border-[#D3DDD6] pt-16 pb-8 text-[#19261E] relative overflow-hidden">
+    <footer className="bg-[#E5F4E9] border-t border-[#CDE8D5] pt-16 pb-8 text-[#122E1F] relative overflow-hidden">
       
       {/* Background soft botanical watermark accent */}
-      <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-[#1E3E2B]/5 pointer-events-none blur-2xl" />
+      <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-[#1B8044]/5 pointer-events-none blur-2xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Features Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-12 border-b border-[#D3DDD6]">
-          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#D3DDD6]/80">
-            <div className="w-12 h-12 rounded-xl bg-[#1E3E2B]/10 flex items-center justify-center text-[#1E3E2B] shrink-0">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-12 border-b border-[#CDE8D5]">
+          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5]/80">
+            <div className="w-12 h-12 rounded-xl bg-[#1B8044]/10 flex items-center justify-center text-[#1B8044] shrink-0">
               <Leaf className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#19261E]">100% Dabīgas Sostāvdaļas</h4>
-              <p className="text-xs text-[#485950]">Svaigi augļi un bioloģiskie augi bez cukura</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">100% Dabīgas Sostāvdaļas</h4>
+              <p className="text-xs text-[#2E523A]">Svaigi augļi un bioloģiskie augi bez cukura</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#D3DDD6]/80">
-            <div className="w-12 h-12 rounded-xl bg-[#1E3E2B]/10 flex items-center justify-center text-[#1E3E2B] shrink-0">
+          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5]/80">
+            <div className="w-12 h-12 rounded-xl bg-[#1B8044]/10 flex items-center justify-center text-[#1B8044] shrink-0">
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#19261E]">Saņemšanas iespējas</h4>
-              <p className="text-xs text-[#485950]">Piegāde vai saņemšana klātienē Rīgā</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">Saņemšanas iespējas</h4>
+              <p className="text-xs text-[#2E523A]">Piegāde vai saņemšana klātienē Rīgā</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#D3DDD6]/80">
-            <div className="w-12 h-12 rounded-xl bg-[#1E3E2B]/10 flex items-center justify-center text-[#1E3E2B] shrink-0">
+          <div className="flex items-center gap-4 bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5]/80">
+            <div className="w-12 h-12 rounded-xl bg-[#1B8044]/10 flex items-center justify-center text-[#1B8044] shrink-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#19261E]">Dabīgā Fermentācija</h4>
-              <p className="text-xs text-[#485950]">Saglabāti visi bio-enzīmi un probiotikas</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">Dabīgā Fermentācija</h4>
+              <p className="text-xs text-[#2E523A]">Saglabāti visi bio-enzīmi un probiotikas</p>
             </div>
           </div>
         </div>
@@ -53,48 +53,58 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand Info */}
           <div className="space-y-4">
             <Link to={getLocalizedPath("home")} className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-[#1E3E2B] text-white flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-[#1B8044] text-white flex items-center justify-center">
                 <Leaf className="w-5 h-5" />
               </div>
-              <span className="font-serif-title text-2xl font-bold text-[#19261E]">Enzimi</span>
+              <div className="flex flex-col">
+                <span className="font-serif-title text-2xl font-bold text-[#122E1F] flex items-center gap-2">
+                  <span>Enzimi</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#1B8044]/10 text-[#1B8044] border border-[#1B8044]/20 uppercase font-bold tracking-wider">
+                    Handmade
+                  </span>
+                </span>
+              </div>
             </Link>
-            <p className="text-xs text-[#485950] leading-relaxed">
-              {t.footer.tagline}
+            <p className="text-xs font-bold text-[#1B8044] uppercase tracking-wider">
+              Dabīgs Spēks Labākai Dzīvei
             </p>
-            <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-[#1E3E2B]">
-              <Sparkles className="w-4 h-4 text-[#9E6723]" />
+            <p className="text-xs text-[#2E523A] leading-relaxed">
+              Enzimi - Dabiski fermentēti dzērieni, spēks un labsajūta no Latvijas dabas.
+            </p>
+            <div className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#1B8044]">
+              <Sparkles className="w-4 h-4 text-[#16A34A]" />
               <span>Dabas harmonija un dzīvīgs spēks</span>
             </div>
           </div>
 
           {/* Col 2: Navigation */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-[#19261E] mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-[#122E1F] mb-4">
               {t.footer.quickLinks}
             </h3>
-            <ul className="space-y-2.5 text-xs text-[#485950]">
+            <ul className="space-y-2.5 text-xs text-[#2E523A]">
               <li>
-                <Link to={getLocalizedPath("home")} className="hover:text-[#1E3E2B] transition-colors">
+                <Link to={getLocalizedPath("home")} className="hover:text-[#1B8044] transition-colors">
                   {t.nav.home}
                 </Link>
               </li>
               <li>
-                <Link to={getLocalizedPath("about")} className="hover:text-[#1E3E2B] transition-colors">
+                <Link to={getLocalizedPath("about")} className="hover:text-[#1B8044] transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link to={getLocalizedPath("products")} className="hover:text-[#1E3E2B] transition-colors">
+                <Link to={getLocalizedPath("products")} className="hover:text-[#1B8044] transition-colors">
                   {t.nav.products}
                 </Link>
               </li>
               <li>
-                <Link to={getLocalizedPath("services")} className="hover:text-[#1E3E2B] transition-colors">
+                <Link to={getLocalizedPath("services")} className="hover:text-[#1B8044] transition-colors">
                   {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link to={getLocalizedPath("contact")} className="hover:text-[#1E3E2B] transition-colors">
+                <Link to={getLocalizedPath("contact")} className="hover:text-[#1B8044] transition-colors">
                   {t.nav.contact}
                 </Link>
               </li>
@@ -103,10 +113,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Popular Products */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-[#19261E] mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-[#122E1F] mb-4">
               Populārākie Dzērieni
             </h3>
-            <ul className="space-y-2.5 text-xs text-[#485950]">
+            <ul className="space-y-2.5 text-xs text-[#2E523A]">
               <li>Smiltsērkšķu un Ingvera Enzīms</li>
               <li>Dzērveņu un Rožu Gūžu Enzīms</li>
               <li>Ābolu un Kanēļa Biosvaigums</li>
@@ -117,20 +127,20 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Contact Info */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-[#19261E] mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-[#122E1F] mb-4">
               {t.nav.contact}
             </h3>
-            <ul className="space-y-3 text-xs text-[#485950]">
+            <ul className="space-y-3 text-xs text-[#2E523A]">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#1E3E2B] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#1B8044] shrink-0 mt-0.5" />
                 <span>{t.contactSection.addressInfo}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#1E3E2B] shrink-0" />
+                <Phone className="w-4 h-4 text-[#1B8044] shrink-0" />
                 <span>{t.contactSection.phoneInfo}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#1E3E2B] shrink-0" />
+                <Mail className="w-4 h-4 text-[#1B8044] shrink-0" />
                 <span>{t.contactSection.emailInfo}</span>
               </li>
             </ul>
@@ -139,12 +149,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#D3DDD6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#485950]">
+        <div className="pt-8 border-t border-[#CDE8D5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#2E523A]">
           <p>{t.footer.copyright}</p>
           <div className="flex items-center gap-3">
-            <span className="hover:text-[#1E3E2B] cursor-pointer transition-colors">{t.footer.privacy}</span>
+            <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.privacy}</span>
             <span>I</span>
-            <span className="hover:text-[#1E3E2B] cursor-pointer transition-colors">{t.footer.terms}</span>
+            <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.terms}</span>
           </div>
         </div>
 

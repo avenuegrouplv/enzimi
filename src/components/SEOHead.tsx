@@ -10,7 +10,7 @@ export function SEOHead({ title, description }: SEOHeadProps) {
     if (title) {
       document.title = `${title} | Enzimi - Bio-Fermentēti Dzērieni`;
     } else {
-      document.title = "Enzimi | Bio-Fermentēti Dzērieni un Komplekti";
+      document.title = "Enzimi | Bio-Fermentēti Dzērieni un Pakalpojumi";
     }
 
     if (description) {

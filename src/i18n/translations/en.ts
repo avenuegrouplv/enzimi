@@ -39,7 +39,7 @@ export const enTranslations: Translations = {
   },
   productsSection: {
     title: "Our Product Lineup",
-    subtitle: "Each elixir is bottled in a 750ml eco-glass bottle.",
+    subtitle: "Each elixir can be bottled in 750ml and 500ml glass bottles.",
     filterAll: "All Drinks (10)",
     filterImmunity: "Immunity",
     filterDigestion: "Digestion",
@@ -50,7 +50,7 @@ export const enTranslations: Translations = {
     addToCart: "Add to Cart",
     addedToCart: "Added to Cart!",
     viewDetails: "Ingredients & Info",
-    volume: "750 ml",
+    volume: "750 ml / 500 ml",
   },
   servicesSection: {
     title: "Our Services",

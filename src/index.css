@@ -8,18 +8,18 @@
 
 :root {
   --enzimi-cream: #FAF9F5;
-  --enzimi-sand: #E8EFEA;
-  --enzimi-brown-light: #9E6723;
-  --enzimi-brown-border: #D3DDD6;
-  --enzimi-brown-medium: #1E3E2B;
-  --enzimi-brown-dark: #142B1E;
-  --enzimi-espresso: #19261E;
-  --enzimi-taupe: #485950;
+  --enzimi-sand: #E5F4E9;
+  --enzimi-brown-light: #22C55E;
+  --enzimi-brown-border: #CDE8D5;
+  --enzimi-brown-medium: #1B8044;
+  --enzimi-brown-dark: #146334;
+  --enzimi-espresso: #122E1F;
+  --enzimi-taupe: #2E523A;
 }
 
 body, html, #root {
   background-color: #FAF9F5 !important;
-  color: #19261E !important;
+  color: #122E1F !important;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,7 +29,7 @@ body, html, #root {
 h1, h2, h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
   letter-spacing: -0.02em;
-  color: #19261E;
+  color: #122E1F;
 }
 
 .font-serif-title {
@@ -51,22 +51,22 @@ h1, h2, h3 {
   background: #FAF9F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2D5A3F;
+  background: #1B8044;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1E3E2B;
+  background: #146334;
 }
 
 /* Soft card hover shadow - NO motion/translate */
 .card-soft-shadow {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  box-shadow: 0 4px 16px -4px rgba(25, 38, 30, 0.06);
+  box-shadow: 0 4px 16px -4px rgba(18, 46, 31, 0.06);
 }
 
 .card-soft-shadow:hover {
-  box-shadow: 0 8px 24px -6px rgba(25, 38, 30, 0.12);
-  border-color: #D3DDD6;
+  box-shadow: 0 8px 24px -6px rgba(18, 46, 31, 0.12);
+  border-color: #CDE8D5;
 }
 
 /* Shimmer effect for CTA buttons */

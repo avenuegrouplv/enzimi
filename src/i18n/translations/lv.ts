@@ -11,9 +11,9 @@ export const lvTranslations: Translations = {
     orderNow: "Pasūtīt e-veikalā",
   },
   hero: {
-    badge: "100% Dzīvs & Dabiski Fermentēts produkts",
-    title: "Dabas spēks un dzīvīgums katrā enzīmu dzēriena malkā",
-    subtitle: "Prasmīgi gatavoti bioloģiski enzīmu eliksīri no Latvijas un pasaules svaigākajiem augļiem, ogām un ārstniecības augiem. Bez pievienota cukura, bez karsēšanas, pilni ar dzīvām pienskābām baktērijām.",
+    badge: "100% Dzīvs • Handmade • Bio-Fermentēts",
+    title: "Dabīgs spēks labākai dzīvei",
+    subtitle: "Mājražotāja gatavoti fermentēts dabisks dzēriens, kas tiek iegūts, raudzējot augļus, dārzeņus vai citas dabīgas izejvielas, kas atbalsta gremošanas sistēmu un stiprina imunitāti. Bez pievienota cukura.",
     ctaProducts: "Apskatīt produktus",
     ctaAbout: "Kas ir enzīmu dzērieni?",
     feature1Title: "Bez Pievienota Cukura",
@@ -25,8 +25,8 @@ export const lvTranslations: Translations = {
   },
   aboutSection: {
     title: "Par Enzīmu Dzērieniem",
-    subtitle: "Bioloģiski aktīvi dabas eliksīri tavam veselīgumam un dzīvīgumam",
-    paragraph1: "Enzīmu dzērieni ir dabiski fermentēti bio-aktīvi eliksīri, kas top ilgstošā un rūpīgā mikroorganismu un dabas velšu sadarbībā. Atšķirībā no parastajiem pasterizētajiem sulu dzērieniem vai gāzētajām limonādēm, enzīmu dzērieni netiek termiski apstrādāti. Lēnā fermentācija (7 līdz 14 dienas) ļauj saglabāt un pavairot fermentus, aminoskābes, vitamīnus un antioksidantus to visdzīvākajā un organismam visvieglāk uzņemamajā formā.",
+    subtitle: "Dabīgs spēks labākai dzīvei – bioloģiski aktīvi dabas eliksīri",
+    paragraph1: "Enzīmi ir fermentēti dabiski dzērieni, kas iegūti, raudzējot dažādus augļus, dārzeņus vai citas dabīgas izejvielas, un satur bioloģiski aktīvas vielas, kas atbalsta un līdzsvaro gremošanas sistēmu, stiprina imunitāti, uzlabo vielmaiņu, atbalsta aknu un nieru darbību, kā arī citas ķermeņa funkcijas un nodrošina enerģijas atjaunošanos. Tie darbojas kā dabisks uztura papildinājums ikdienas stresam, slodzei un nepilnvērtīgam uzturam.",
     paragraph2: "Regulāra enzīmu dzērienu lietošana sniedz visaptverošu atbalstu cilvēka veselībai. Šie eliksīri uzlabo kuņģa un zarnu trakta darbību, palīdz sašķelt barības vielas un veicina to pilnvērtīgu uzsūkšanos šūnās. Tie sniedz spēcīgu imūnsistēmas lādiņu, mazina iekaisuma procesus, palīdz izvadīt vielmaiņas gala produktus un regulē organisma skābju-sārmu līdzsvaru, dāvājot viegluma sajūtu un ilgtspējīgu enerģiju visas dienas garumā.",
     paragraph3: "Dzēriena pamatakmens ir tajā esošās dzīvās pienskābās baktērijas un probiotiskās kultūras. Fermentācijas procesā labvēlīgie mikroorganismi sadala sarežģītos ogļhidrātus un organiskos savienojumus vieglāk uzņemamās molekulās. Šīs labās baktērijas apmetas zarnu traktā, kavē patogēno mikrobu vairošanos, atjauno bojāto mikrofloru un stimulē serotonīna un imūnšūnu izstrādi, jo tieši zarnu traktā atrodas aptuveni 80% no mūsu imunitātes.",
     paragraph4: "Enzīmu dzērienu gatavošanas procesā mēs ievērojam visaugstākos tīrības un dabas likumus. Dzērienos netiek izmantots pārstrādāts baltais cukurs, mākslīgie konservanti vai krāsvielas. Mēs izmantojam tikai 100% svaigus augļus, meža ogas, ārstniecības augus un tīru avota ūdeni. Sākotnējā fermentācijas procesa ierosināšanai nepieciešamo ogļhidrātu lomu pilda pašu augļu dabiskais saldums un pavasara medus, kas fermentācijas gaitā pilnībā pārvēršas vērtīgās organiskajās skābēs un bio-enzīmos.",
@@ -39,7 +39,7 @@ export const lvTranslations: Translations = {
   },
   productsSection: {
     title: "E-Veikala Produkti",
-    subtitle: "Katrs dzēriens ir pildīts 750ml stikla pudelē.",
+    subtitle: "Katrs dzēriens var tikt pildīts 750ml un 500ml stikla pudelē.",
     filterAll: "Visi dzērieni (10)",
     filterImmunity: "Imunitātei",
     filterDigestion: "Gremošanai",
@@ -50,11 +50,11 @@ export const lvTranslations: Translations = {
     addToCart: "Pievienot grozam",
     addedToCart: "Pievienots grozam!",
     viewDetails: "Sastāvs & Plašāk",
-    volume: "750 ml",
+    volume: "750 ml / 500 ml",
   },
   servicesSection: {
     title: "Mūsu Pakalpojumi",
-    subtitle: "Atbalsts enzīmu ražošanai mājas apstākļos, individuālas receptūras un komplekti",
+    subtitle: "Atbalsts enzīmu ražošanai mājas apstākļos un individuālas receptūras",
     service1Title: "Mājas Ražošanas Konsultācijas & Meistarklases",
     service1Desc: "Apgūstiet bioloģisko enzīmu dzērienu gatavošanas mākslu savās mājās gida vadībā. Mēs piedāvājam gan individuālas, gan grupu apmācības klātienē vai tiešsaistē.",
     service1Details: [

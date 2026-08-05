@@ -39,7 +39,7 @@ export const ruTranslations: Translations = {
   },
   productsSection: {
     title: "Продукция Интернет-Магазина",
-    subtitle: "Каждый напиток разливается в стеклянную бутылку 750 мл.",
+    subtitle: "Каждый напиток может быть разлит в стеклянные бутылки 750 мл и 500 мл.",
     filterAll: "Все напитки (10)",
     filterImmunity: "Для иммунитета",
     filterDigestion: "Для пищеварения",
@@ -50,7 +50,7 @@ export const ruTranslations: Translations = {
     addToCart: "В корзину",
     addedToCart: "Добавлено!",
     viewDetails: "Состав и Подробнее",
-    volume: "750 мл",
+    volume: "750 мл / 500 мл",
   },
   servicesSection: {
     title: "Наши Услуги",

@@ -1,3 +1,10 @@
+export type VolumeOption = '750ml' | '500ml';
+
+export const VOLUME_PRICES: Record<VolumeOption, number> = {
+  '750ml': 12.99,
+  '500ml': 9.99,
+};
+
 export interface Product {
   id: string;
   name: string;
@@ -18,6 +25,8 @@ export interface Product {
 
 export interface CartItem {
   product: Product;
+  selectedVolume: VolumeOption;
+  unitPrice: number;
   quantity: number;
 }
 
