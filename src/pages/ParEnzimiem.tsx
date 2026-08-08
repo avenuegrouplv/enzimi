@@ -15,30 +15,26 @@ export const ParEnzimiem: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <section className="pt-12 pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
+      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Leaf className="w-4 h-4 text-[#1B8044]" />
-            <span>Handmade • Fermentācijas Bio-Zinātne & Daba</span>
+            <span>Dabīgs un fermentēts produkts</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            {t.aboutSection.title}
+            Viss par un ap Enzīmu dzērieniem
           </h1>
 
           <p className="text-sm sm:text-base font-bold text-[#1B8044] uppercase tracking-wider">
-            DABĪGS SPĒKS LABĀKAI DZĪVEI
-          </p>
-
-          <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            {t.aboutSection.subtitle}
+            DABAS SPĒKS VESELĪGAI DZĪVEI
           </p>
         </div>
       </section>
 
       {/* 4 Detailed Paragraphs Section */}
-      <section className="py-16 bg-[#FAF9F5]">
-        <div className="max-w-4xl mx-auto px-4 space-y-12">
+      <section className="py-8 sm:py-16 bg-[#FAF9F5]">
+        <div className="max-w-4xl mx-auto px-4 space-y-6 sm:space-y-12">
           
           {/* Paragraph 1 Card */}
           <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-4">
@@ -58,8 +54,8 @@ export const ParEnzimiem: React.FC = () => {
           {/* Main Benefits Highlights */}
           <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center shrink-0">
-                <Sparkles className="w-5 h-5 text-[#1B8044]" />
+              <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center font-bold text-sm shrink-0">
+                02
               </div>
               <h2 className="font-serif-title text-xl sm:text-2xl font-bold tracking-tight text-[#122E1F]">
                 Dzērienu Galvenās Priekšrocības
@@ -96,7 +92,7 @@ export const ParEnzimiem: React.FC = () => {
           <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center font-bold text-sm">
-                02
+                03
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
                 Kādas ir to labās un vērtīgās īpašības?
@@ -122,7 +118,7 @@ export const ParEnzimiem: React.FC = () => {
           <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center font-bold text-sm">
-                03
+                04
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
                 Ko dara dzērienā esošās pienskābās baktērijas?
@@ -144,10 +140,10 @@ export const ParEnzimiem: React.FC = () => {
           <div className="bg-[#FFFFFF] p-8 sm:p-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center font-bold text-sm">
-                04
+                05
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                No kā tiek gatavoti mūsu dzērieni? (Bez cukura)
+                No kā tiek gatavoti mūsu dzērieni?
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">

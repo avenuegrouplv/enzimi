@@ -61,7 +61,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const unitPrice = VOLUME_PRICES[volume] || product.price || 12.99;
     setCart((prev) => {
       const existingIndex = prev.findIndex(
-        (item) => item.product.id === product.id && item.selectedVolume === volume
+        (item) => item.product.id === product.id && (item.selectedVolume || '750ml') === volume
       );
       if (existingIndex > -1) {
         return prev.map((item, idx) =>
@@ -75,9 +75,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setIsCartOpen(true);
   };
 
-  const removeFromCart = (productId: string, volume: VolumeOption) => {
+  const removeFromCart = (productId: string, volume?: VolumeOption) => {
     setCart((prev) =>
-      prev.filter((item) => !(item.product.id === productId && item.selectedVolume === volume))
+      prev.filter((item) => {
+        if (!volume) {
+          return item.product.id !== productId;
+        }
+        const itemVol = item.selectedVolume || '750ml';
+        return !(item.product.id === productId && itemVol === volume);
+      })
     );
   };
 
@@ -85,7 +91,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setCart((prev) =>
       prev
         .map((item) => {
-          if (item.product.id === productId && item.selectedVolume === volume) {
+          const itemVol = item.selectedVolume || '750ml';
+          if (item.product.id === productId && itemVol === volume) {
             const newQty = item.quantity + delta;
             return newQty > 0 ? { ...item, quantity: newQty } : null;
           }
@@ -100,16 +107,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const newUnitPrice = VOLUME_PRICES[newVolume];
     setCart((prev) => {
       const targetItem = prev.find(
-        (item) => item.product.id === productId && item.selectedVolume === oldVolume
+        (item) => item.product.id === productId && (item.selectedVolume || '750ml') === oldVolume
       );
       if (!targetItem) return prev;
 
       const filtered = prev.filter(
-        (item) => !(item.product.id === productId && item.selectedVolume === oldVolume)
+        (item) => !(item.product.id === productId && (item.selectedVolume || '750ml') === oldVolume)
       );
 
       const existingNewIndex = filtered.findIndex(
-        (item) => item.product.id === productId && item.selectedVolume === newVolume
+        (item) => item.product.id === productId && (item.selectedVolume || '750ml') === newVolume
       );
 
       if (existingNewIndex > -1) {
@@ -140,7 +147,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [cart]);
 
   const cartTotal = useMemo(() => {
-    return cart.reduce((acc, item) => acc + (item.unitPrice || 12.99) * item.quantity, 0);
+    return cart.reduce((acc, item) => {
+      const vol = item.selectedVolume || '750ml';
+      const price = item.unitPrice || VOLUME_PRICES[vol] || 12.99;
+      return acc + price * item.quantity;
+    }, 0);
   }, [cart]);
 
   const { lang, pageKey } = useMemo(() => {

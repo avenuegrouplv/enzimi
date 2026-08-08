@@ -69,7 +69,7 @@ export const BottleGraphic: React.FC<BottleGraphicProps> = ({
         <path d="M 50 102 C 53 105 53 109 50 112 C 47 109 47 105 50 102 Z" fill={bottleAccent} />
         
         {/* Enzimi Text */}
-        <text x="50" y="122" textAnchor="middle" fill="#3D2C22" fontSize="7" fontWeight="bold" fontFamily="sans-serif">ENZIMI</text>
+        <text x="50" y="122" textAnchor="middle" fill="#3D2C22" fontSize="7" fontWeight="bold" fontFamily="sans-serif">ENZĪMI</text>
         <text x="50" y="128" textAnchor="middle" fill="#7F5539" fontSize="4.5" fontFamily="sans-serif">BIO-ELIXIR</text>
         
         <line x1="32" y1="132" x2="68" y2="132" stroke="#E6CCB2" strokeWidth="0.5" />

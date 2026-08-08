@@ -38,24 +38,25 @@ export const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#FAF9F5]/95 backdrop-blur-md shadow-xs border-b border-[#CDE8D5]/70 py-3"
-          : "bg-[#FAF9F5]/80 backdrop-blur-xs py-4"
+          ? "bg-[#FAF9F5]/95 backdrop-blur-md shadow-xs border-b border-[#CDE8D5]/70 pt-3.5 pb-3.5"
+          : "bg-[#FAF9F5]/80 backdrop-blur-xs pt-5 pb-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
           <Link to={getLocalizedPath("home")} className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-[#E5F4E9] border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] group-hover:bg-[#1B8044] group-hover:text-white transition-colors">
-              <Leaf className="w-5 h-5 transition-transform group-hover:rotate-12" />
+            <div className="w-[43px] h-[43px] rounded-xl bg-[#E5F4E9] border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] group-hover:bg-[#1B8044] group-hover:text-white transition-colors">
+              <Leaf className="w-[22px] h-[22px] transition-transform group-hover:rotate-12" />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif-title text-2xl font-bold tracking-tight text-[#122E1F]">
-                Enzimi
+              <span className="font-serif-title text-[26px] font-bold tracking-tight text-[#122E1F] leading-none">
+                Enzīmi
               </span>
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#1B8044] -mt-0.5 font-sans font-bold">
-                Dabīgs Spēks Labākai Dzīvei
+              <span className="text-[10px] sm:text-[11px] tracking-wider text-[#1B8044] mt-0.5 font-sans font-bold leading-tight">
+                <span className="block sm:inline">Dabas spēks</span>{" "}
+                <span className="block sm:inline">veselīgai dzīvei</span>
               </span>
             </div>
           </Link>

@@ -15,7 +15,7 @@ export const Kontakti: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <section className="pt-12 pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
+      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Mail className="w-4 h-4 text-[#1B8044]" />
@@ -33,10 +33,10 @@ export const Kontakti: React.FC = () => {
       </section>
 
       {/* Main Form & Contact Info Grid */}
-      <section className="py-16 bg-[#FAF9F5]">
+      <section className="py-8 sm:py-16 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12">
             
             {/* Contact Details Card */}
             <div className="lg:col-span-5 space-y-6">

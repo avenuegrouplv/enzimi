@@ -71,8 +71,8 @@ export const enTranslations: Translations = {
       "Elegant eco-friendly wooden gift packaging",
       "Volume discounts for bulk orders"
     ],
-    service3Title: "Fermentation Kit & Home Starter",
-    service3Desc: "Everything required to begin your fermentation. Kit includes a 20L tank and production starter.",
+    service3Title: "Fermentation Kit",
+    service3Desc: "Everything required to start your enzyme drink fermentation at home. Kit includes a 20L tank, complete fittings, and a heater.",
     service3Details: [
       "20L fermentation tank with airlock valve",
       "Live active starter culture and mineral blend",

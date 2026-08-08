@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { SEOHead } from '../components/SEOHead';
 import { Sparkles, Check, ArrowRight, BookOpen, Users, Package, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import startaKomplektsImg from '../assets/starta-komplekts.webp';
 
 export const Pakalpojumi: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
@@ -10,7 +11,7 @@ export const Pakalpojumi: React.FC = () => {
   const [inquirySent, setInquirySent] = useState(false);
 
   const serviceImages: Record<string, string> = {
-    komplekti: '/starta-komplekts.webp',
+    komplekti: startaKomplektsImg,
     meistarklases: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80',
     korporativie: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80',
   };
@@ -50,7 +51,7 @@ export const Pakalpojumi: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <section className="pt-12 pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
+      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#1B8044]" />
@@ -68,8 +69,8 @@ export const Pakalpojumi: React.FC = () => {
       </section>
 
       {/* Main Services Cards */}
-      <section className="py-16 bg-[#FAF9F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-8 sm:py-16 bg-[#FAF9F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((s) => {
@@ -80,29 +81,36 @@ export const Pakalpojumi: React.FC = () => {
                   className="bg-[#FFFFFF] p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between space-y-6"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#F2FAF4] text-[#1B8044] flex items-center justify-center shrink-0 overflow-hidden border border-[#CDE8D5] p-1">
+                    <div className="flex items-start gap-4">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center shrink-0 overflow-hidden border border-[#CDE8D5] shadow-2xs">
                         {serviceImages[s.id] ? (
                           <img
                             src={serviceImages[s.id]}
                             alt={s.title}
-                            className={`w-full h-full ${s.id === 'komplekti' ? 'object-contain' : 'object-cover rounded-xl'}`}
+                            onError={(e) => {
+                              if (s.id === 'komplekti') {
+                                (e.currentTarget as HTMLImageElement).src = '/starta-komplekts.webp';
+                              }
+                            }}
+                            className="w-full h-full object-cover"
                           />
                         ) : (
                           <IconComp className="w-8 h-8" />
                         )}
                       </div>
-                      <div>
-                        <span className="text-[11px] font-bold text-[#1B8044] bg-[#E5F4E9] px-3 py-1 rounded-full border border-[#CDE8D5] inline-block mb-1">
-                          {s.priceNote}
-                        </span>
-                        <h3 className="font-serif-title text-xl font-bold text-[#122E1F] leading-tight">
+                      <div className="flex-1 min-w-0 flex flex-col justify-center min-h-[80px] sm:min-h-[96px]">
+                        <div className="mb-1">
+                          <span className="text-[11px] font-bold text-[#1B8044] bg-[#E5F4E9] px-3 py-1 rounded-full border border-[#CDE8D5] inline-block">
+                            {s.priceNote}
+                          </span>
+                        </div>
+                        <h3 className="font-serif-title text-base sm:text-lg font-bold text-[#122E1F] leading-snug">
                           {s.title}
                         </h3>
                       </div>
                     </div>
 
-                    <p className="text-xs text-[#2E523A] leading-relaxed">
+                    <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
                       {s.desc}
                     </p>
 

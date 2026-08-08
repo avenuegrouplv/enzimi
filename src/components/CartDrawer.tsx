@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { VolumeOption, VOLUME_PRICES } from '../types';
 import { X, Trash2, Plus, Minus, ShoppingBag, CheckCircle, ArrowRight } from 'lucide-react';
+import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -127,8 +128,11 @@ export const CartDrawer: React.FC = () => {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-center gap-3">
                           <img
-                            src="/enzimu-dzerieni.webp"
+                            src={enzimuDzerieniImg}
                             alt={item.product.name}
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = '/enzimu-dzerieni.webp';
+                            }}
                             className="w-10 h-10 object-contain p-0.5 rounded-xl bg-[#E5F4E9] border border-[#CDE8D5]"
                           />
                           <div>
@@ -140,8 +144,9 @@ export const CartDrawer: React.FC = () => {
                         </div>
 
                         <button
+                          type="button"
                           onClick={() => removeFromCart(item.product.id, vol)}
-                          className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+                          className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
                           title="Dzēst no groza"
                         >
                           <Trash2 className="w-4 h-4" />

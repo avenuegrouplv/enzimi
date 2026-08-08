@@ -41,26 +41,26 @@ export const Produkti: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <section className="pt-12 pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
+      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E5F4E9]/70 border-b border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <ShoppingBag className="w-4 h-4 text-[#1B8044]" />
-            <span>750ml un 500ml Stikla Pudeles</span>
+            <span>E-veikala piedāvājums</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            Enzīmu Dzērienu Kolekcija
+            Mūsu iecienītākie enzīmu dzērieni
           </h1>
 
           <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            {t.productsSection.subtitle}
+            Katrs dzēriens var tikt pildīts 750ml un 500ml stikla pudelē
           </p>
         </div>
       </section>
 
       {/* Main E-Shop Section */}
-      <section className="py-16 bg-[#FAF9F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="py-8 sm:py-16 bg-[#FAF9F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
           
           {/* Controls: Search & Category Filter Tabs */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-[#FFFFFF] p-4 rounded-3xl border border-[#CDE8D5] card-soft-shadow">

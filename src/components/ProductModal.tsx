@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Product, VolumeOption, VOLUME_PRICES } from '../types';
 import { X, Check, ShoppingBag, Droplet, Plus, Minus } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
 
 interface ProductModalProps {
   product: Product | null;
@@ -38,8 +39,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               {product.categoryLabel}
             </span>
             <img
-              src="/enzimu-dzerieni.webp"
+              src={enzimuDzerieniImg}
               alt={product.name}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = '/enzimu-dzerieni.webp';
+              }}
               className="h-48 w-auto object-contain drop-shadow-lg mb-2"
             />
             <div className="text-center">

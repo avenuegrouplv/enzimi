@@ -53,28 +53,21 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand Info */}
           <div className="space-y-4">
             <Link to={getLocalizedPath("home")} className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-[#1B8044] text-white flex items-center justify-center">
-                <Leaf className="w-5 h-5" />
+              <div className="w-[43px] h-[43px] rounded-xl bg-[#1B8044] text-white flex items-center justify-center">
+                <Leaf className="w-[22px] h-[22px]" />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif-title text-2xl font-bold text-[#122E1F] flex items-center gap-2">
-                  <span>Enzimi</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#1B8044]/10 text-[#1B8044] border border-[#1B8044]/20 uppercase font-bold tracking-wider">
-                    Handmade
-                  </span>
+                <span className="font-serif-title text-[26px] font-bold text-[#122E1F] leading-none">
+                  Enzīmi
                 </span>
               </div>
             </Link>
-            <p className="text-xs font-bold text-[#1B8044] uppercase tracking-wider">
-              Dabīgs Spēks Labākai Dzīvei
+            <p className="text-[13px] font-bold text-[#1B8044] tracking-wide">
+              Dabas spēks veselīgai dzīvei
             </p>
             <p className="text-xs text-[#2E523A] leading-relaxed">
-              Enzimi - Dabiski fermentēti dzērieni, spēks un labsajūta no Latvijas dabas.
+              Enzīmi - Dabiski fermentēti dzērieni, spēks un labsajūta no Latvijas dabas.
             </p>
-            <div className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#1B8044]">
-              <Sparkles className="w-4 h-4 text-[#16A34A]" />
-              <span>Dabas harmonija un dzīvīgs spēks</span>
-            </div>
           </div>
 
           {/* Col 2: Navigation */}
@@ -149,7 +142,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#CDE8D5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#2E523A]">
+        <div className="pt-8 border-t border-[#CDE8D5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#2E523A] font-medium">
           <p>{t.footer.copyright}</p>
           <div className="flex items-center gap-3">
             <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.privacy}</span>

@@ -11,10 +11,10 @@ export const lvTranslations: Translations = {
     orderNow: "Pasūtīt e-veikalā",
   },
   hero: {
-    badge: "100% Dzīvs • Handmade • Bio-Fermentēts",
-    title: "Dabīgs spēks labākai dzīvei",
-    subtitle: "Mājražotāja gatavoti fermentēts dabisks dzēriens, kas tiek iegūts, raudzējot augļus, dārzeņus vai citas dabīgas izejvielas, kas atbalsta gremošanas sistēmu un stiprina imunitāti. Bez pievienota cukura.",
-    ctaProducts: "Apskatīt produktus",
+    badge: "100% Dzīvs • Fermentēts dzēriens • Bez cukura",
+    title: "Dabas spēks veselīgai dzīvei katrā enzīmu dzēriena malkā",
+    subtitle: "Mājražotāja gatavoti fermentēti dabiski dzērieni, kas tiek iegūti, raudzējot augļus, dārzeņus un citas dabīgas izejvielas, kas atbalsta gremošanas sistēmu un stiprina imunitāti. Bez pievienota cukura",
+    ctaProducts: "Apskatīt produktus un cenas",
     ctaAbout: "Kas ir enzīmu dzērieni?",
     feature1Title: "Bez Pievienota Cukura",
     feature1Desc: "Fermentācijas procesā izmantota tikai dabīgā augļu fruktoze un tīrs medus, kas pilnībā pārstrādājas.",
@@ -55,7 +55,7 @@ export const lvTranslations: Translations = {
   servicesSection: {
     title: "Mūsu Pakalpojumi",
     subtitle: "Atbalsts enzīmu ražošanai mājas apstākļos un individuālas receptūras",
-    service1Title: "Mājas Ražošanas Konsultācijas & Meistarklases",
+    service1Title: "Mājražošanas konsultācijas & meistarklases",
     service1Desc: "Apgūstiet bioloģisko enzīmu dzērienu gatavošanas mākslu savās mājās gida vadībā. Mēs piedāvājam gan individuālas, gan grupu apmācības klātienē vai tiešsaistē.",
     service1Details: [
       "Iepazīstināšana ar fermentācijas bioloģiju un drošību",
@@ -63,7 +63,7 @@ export const lvTranslations: Translations = {
       "Receptūru pielāgošana atbilstoši indivīda veselības vajadzībām",
       "Praktiska dzēriena ieraudzēšana meistarklases laikā"
     ],
-    service2Title: "Individuāli Pasūtījumi & Korporatīvās Dāvanas",
+    service2Title: "Korporatīvās dāvanas & Pasūtījumi",
     service2Desc: "Izstrādājam unikālas garšas līnijas ar pielāgotām dizaina etiķetēm uzņēmumu pasākumiem, svētkiem, restorāniem un korporatīvajām dāvanām.",
     service2Details: [
       "Personalizēts dzēriena etiķetes dizains ar jūsu logo",
@@ -71,8 +71,8 @@ export const lvTranslations: Translations = {
       "Elegants koka vai ekoloģiskā kartona dāvanu iesaiņojums",
       "Izdevīgi nosacījumi lielāka apjoma pasūtījumiem"
     ],
-    service3Title: "Fermentācijas komplekts & Mājas starteris",
-    service3Desc: "Viss nepieciešamais, lai jūs uzsāktu savu fermentāciju. Komplektā ietverta 20L tvertne un ražošanas starteris.",
+    service3Title: "Fermentācijas Komplekts",
+    service3Desc: "Viss nepieciešamais, lai jūs uzsāktu savu enzīma dzērienu fermentāciju mājas apstākļos. Komplektā ietilpst 20L tvertne, pilna tā apsaite un sildītājs.",
     service3Details: [
       "20L fermentācijas tvertne ar gaisa vārstu",
       "Dzīvā fermentācijas iejava (starters) un minerālvielu komplekss",
@@ -117,7 +117,7 @@ export const lvTranslations: Translations = {
   },
   footer: {
     tagline: "Enzimi - Dabiski fermentēti dzērieni, spēks un labsajūta no Latvijas dabas.",
-    quickLinks: "Ātrās saites",
+    quickLinks: "Navigācija",
     legal: "Juridiskā informācija",
     copyright: "© 2025 Enzimi. Visas tiesības aizsargātas.",
     privacy: "Privātuma politika",

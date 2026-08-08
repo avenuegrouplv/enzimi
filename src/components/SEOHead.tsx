@@ -8,9 +8,9 @@ interface SEOHeadProps {
 export function SEOHead({ title, description }: SEOHeadProps) {
   useEffect(() => {
     if (title) {
-      document.title = `${title} | Enzimi - Bio-Fermentēti Dzērieni`;
+      document.title = `${title} | Enzīmi - Bio-Fermentēti Dzērieni`;
     } else {
-      document.title = "Enzimi | Bio-Fermentēti Dzērieni un Pakalpojumi";
+      document.title = "Enzīmi | Bio-Fermentēti Dzērieni un Pakalpojumi";
     }
 
     if (description) {
