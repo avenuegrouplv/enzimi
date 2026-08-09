@@ -380,18 +380,18 @@ export const Home: React.FC = () => {
       {/* Services Section Preview */}
       <section className="py-6 md:py-10 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-3 sm:space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044] block">
               Citi mūsu pakalpojumi
             </span>
-            <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-[#122E1F]">
+            <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-[#122E1F] pt-1">
               Piedāvājam meistarklases, individuālas dāvanas un mājražošanas komplektu
             </h2>
           </div>
 
           {/* Services Horizontal Sliding Carousel (Right to Left - One by One) */}
           <div className="relative overflow-hidden w-full py-2 group px-2 sm:px-4">
-            {/* Previous / Next buttons */}
+            {/* Previous / Next buttons (Desktop only) */}
             <button
               onClick={() => {
                 if (currentIndex === 0) {
@@ -406,7 +406,7 @@ export const Home: React.FC = () => {
                   setCurrentIndex((prev) => prev - 1);
                 }
               }}
-              className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
+              className="hidden md:flex absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
               aria-label="Iepriekšējais"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -416,7 +416,7 @@ export const Home: React.FC = () => {
                 setIsTransitioning(true);
                 setCurrentIndex((prev) => prev + 1);
               }}
-              className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
+              className="hidden md:flex absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
               aria-label="Nākamais"
             >
               <ChevronRight className="w-5 h-5" />
@@ -436,10 +436,10 @@ export const Home: React.FC = () => {
                 {extendedServices.map((service, index) => (
                   <div
                     key={`${service.id}-${index}`}
-                    className="bg-[#FFFFFF] p-6 sm:p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between w-full md:w-[calc((100%-48px)/3)] shrink-0 box-border"
+                    className="bg-[#FFFFFF] p-6 sm:p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between w-full md:w-[calc((100%-48px)/3)] shrink-0 box-border text-center"
                   >
-                    <div className="space-y-3">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
+                    <div className="space-y-3 flex flex-col items-center">
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs mx-auto">
                         <img
                           src={service.image}
                           alt={service.title}
@@ -451,10 +451,10 @@ export const Home: React.FC = () => {
                           className={`w-full h-full ${service.id === 3 ? 'object-contain p-1' : 'object-cover'}`}
                         />
                       </div>
-                      <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center">
+                      <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center justify-center text-center">
                         {service.title}
                       </h3>
-                      <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
+                      <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px] text-center">
                         {service.desc}
                       </p>
                     </div>
@@ -537,7 +537,7 @@ export const Home: React.FC = () => {
       {/* CTA Bottom Banner */}
       <section className="py-6 md:py-10 bg-[#1B8044] text-white">
         <div className="max-w-5xl mx-auto px-4 text-center space-y-4 sm:space-y-6">
-          <h2 className="font-serif-title text-3xl sm:text-4xl font-bold">
+          <h2 className="font-serif-title text-2xl sm:text-4xl font-bold">
             Sajūti dabas dāvāto spēku un vieglumu jau šodien
           </h2>
           <p className="text-xs sm:text-sm text-[#E5F4E9] max-w-xl mx-auto leading-relaxed">
