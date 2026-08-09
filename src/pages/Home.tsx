@@ -6,7 +6,7 @@ import { ProductCard } from '../components/ProductCard';
 import { ProductModal } from '../components/ProductModal';
 import { Product } from '../types';
 import { SEOHead } from '../components/SEOHead';
-import { BottleGraphic } from '../components/BottleGraphic';
+import { UsageGuideSection } from '../components/UsageGuideSection';
 import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
 import startaKomplektsImg from '../assets/starta-komplekts.webp';
 import pasutietEnzimuDzerienusImg from '../assets/pasutiet-enzimu-dzerienus.webp';
@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
   const faqs = [
     {
       q: "Vai enzīmu dzērieni ir veselīgi organismam?",
-      a: "Enzīmu dzērieni ir izcili veselīgi, jo tie satur miljoniem dzīvu pienskābo baktēriju (probiotiku), aminoskābes un bio-aktīvus fermentus. Tie dabiskā veidā uzlabo zarnu mikrofloru, veicina uzturvielu uzsūkšanos, stiprina imūnsistēmu un sniedz organismam ilgtspējīgu enerģiju.",
+      a: "Enzīmu dzērieni ir izcili veselīgi, jo tie satur miljoniem dzīvu baktēriju (probiotiku), aminoskābes un aktīvus fermentus. Tie dabiskā veidā uzlabo zarnu mikrofloru, veicina uzturvielu uzsūkšanos, stiprina imūnsistēmu un sniedz organismam ilgtspējīgu enerģiju.",
     },
     {
       q: "Vai ar enzīmu dzērieniem var aizvietot veikalos nopērkamos saldinātos dzērienus un limonādes?",
@@ -68,11 +68,11 @@ export const Home: React.FC = () => {
     <>
       <SEOHead
         title="Dabas Fermentēti Enzīmu Dzērieni"
-        description="Svaigi fermentēti bioloģiskie enzīmu dzērieni un eliksīri bez pievienota cukura. 100% dabīgi augļi un dzīvās pienskābās baktērijas."
+        description="Svaigi fermentēti bioloģiskie enzīmu dzērieni bez pievienota cukura. 100% dabīgi augļi un dzīvās baktērijas."
       />
 
       {/* Hero Section */}
-      <section className="relative pt-6 pb-6 md:pt-16 md:pb-10 overflow-hidden bg-gradient-to-b from-[#FAF9F5] via-[#E5F4E9]/70 to-[#FAF9F5]">
+      <section className="relative pt-4 pb-4 md:pt-10 md:pb-6 overflow-hidden bg-gradient-to-b from-[#FAF9F5] via-[#E5F4E9]/70 to-[#FAF9F5]">
         
         {/* Soft Background Decorative Orbs */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#1B8044]/5 rounded-full blur-3xl pointer-events-none" />
@@ -124,7 +124,7 @@ export const Home: React.FC = () => {
               <div className="relative bg-[#FFFFFF] px-8 py-9 sm:px-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow w-full max-w-[645px] text-center space-y-4">
                 <div className="flex items-center justify-center gap-2">
                   <span className="bg-[#E5F4E9] text-[#1B8044] text-xs font-bold px-3 py-1 rounded-full border border-[#CDE8D5]">
-                    Dabas Eliksīrs • 750ml / 500ml Stikla Pudele
+                    Dabas Dzēriens • 750ml / 500ml Pudele
                   </span>
                   <span className="bg-[#1B8044] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
                     Handmade
@@ -144,10 +144,9 @@ export const Home: React.FC = () => {
 
                 <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-left space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-sm text-[#122E1F]">Smiltsērkšķu & Ingvera Enzīms</span>
-                    <span className="font-bold text-base text-[#1B8044]">€12.99</span>
+                    <span className="font-bold text-sm text-[#122E1F]">100% dabīgs produkts</span>
                   </div>
-                  <p className="text-xs text-[#2E523A]">100% svaigi augļi, pienskābās baktērijas, dabīgais medus raugs.</p>
+                  <p className="text-xs text-[#2E523A]">Svaigi augļi, dārzeņi un citas dabīgās izejvielas</p>
                 </div>
 
                 <Link
@@ -164,8 +163,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+
+
       {/* 3 Value Proposition Cards Section */}
-      <section className="pt-2 md:pt-24 pb-12 bg-[#FAF9F5]">
+      <section className="py-6 md:py-8 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
@@ -209,44 +210,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Products E-Shop Showcase */}
-      <section className="py-10 md:py-20 bg-[#E5F4E9]/50 border-y border-[#CDE8D5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
-                E-Veikala Piedāvājums
-              </span>
-              <h2 className="font-serif-title text-3xl sm:text-4xl font-bold text-[#122E1F] mt-1">
-                Populārākie Enzīmu Dzērieni
-              </h2>
-            </div>
-
-            <Link
-              to={getLocalizedPath("products")}
-              className="px-5 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#CDE8D5] text-[#122E1F] text-xs font-bold hover:bg-[#1B8044] hover:text-white transition-colors flex items-center gap-2"
-            >
-              <span>Apskatīt visus produktus</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((prod) => (
-              <ProductCard
-                key={prod.id}
-                product={prod}
-                onOpenModal={setSelectedProduct}
-              />
-            ))}
-          </div>
-
-        </div>
-      </section>
-
       {/* About Section Preview Teaser */}
-      <section className="py-10 md:py-20 bg-[#FAF9F5]">
+      <section className="py-6 md:py-10 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#FFFFFF] rounded-3xl border border-[#CDE8D5] p-6 sm:p-12 card-soft-shadow">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -256,10 +221,10 @@ export const Home: React.FC = () => {
                   Kas Ir Enzīmu Dzērieni?
                 </span>
                 <h2 className="font-serif-title text-3xl font-bold text-[#122E1F]">
-                  Dabiski fermentēti bio-aktīvie eliksīri šūnu spēkam
+                  Dabiski fermentēti dzērieni labai pašsajūtai
                 </h2>
                 <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-                  Enzīmu dzērieni ir dabiski fermentēti eliksīri, kas top ilgstošā mikroorganismu un dabas velšu sadarbībā. Tie netiek termiski apstrādāti vai pasterizēti, saglabājot visas dzīvās pienskābās baktērijas, aminoskābes un gremošanas fermentus.
+                  Enzīmu dzērieni ir dabiski fermentēti dzērieni, kas top rūpīgā gatavošanas procesā. Tie netiek pasterizēti, saglabājot visas vērtīgās baktērijas un fermentus.
                 </p>
                 <div className="space-y-2 pt-2">
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
@@ -309,15 +274,54 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Usage Guide Educational Section */}
+      <UsageGuideSection />
+
+      {/* Featured Products E-Shop Showcase */}
+      <section className="py-6 md:py-10 bg-[#E5F4E9]/50 border-y border-[#CDE8D5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
+                E-Veikala Piedāvājums
+              </span>
+              <h2 className="font-serif-title text-3xl sm:text-4xl font-bold text-[#122E1F] mt-1">
+                Populārākie Enzīmu Dzērieni
+              </h2>
+            </div>
+
+            <Link
+              to={getLocalizedPath("products")}
+              className="px-5 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#CDE8D5] text-[#122E1F] text-xs font-bold hover:bg-[#1B8044] hover:text-white transition-colors flex items-center gap-2"
+            >
+              <span>Apskatīt visus produktus</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProducts.map((prod) => (
+              <ProductCard
+                key={prod.id}
+                product={prod}
+                onOpenModal={setSelectedProduct}
+              />
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* Services Section Preview */}
-      <section className="py-10 md:py-20 bg-[#E5F4E9]/40">
+      <section className="py-6 md:py-10 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
-              Mūsu Pakalpojumi
+              Citi mūsu pakalpojumi
             </span>
             <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-[#122E1F]">
-              Piedāvājam meistarklases, individuālas dāvanas un Mājražošanas komplektu
+              Piedāvājam meistarklases, individuālas dāvanas un mājražošanas komplektu
             </h2>
           </div>
 
@@ -353,7 +357,7 @@ export const Home: React.FC = () => {
               <div className="space-y-3">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
                   <img
-                    src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80"
+                    src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80"
                     alt={t.servicesSection.service2Title}
                     className="w-full h-full object-cover"
                   />
@@ -410,7 +414,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* FAQ Accordion Section */}
-      <section className="py-10 md:py-20 bg-[#FAF9F5] border-t border-[#CDE8D5]">
+      <section className="py-6 md:py-10 bg-[#FAF9F5] border-t border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B8044] uppercase tracking-wider">
@@ -454,7 +458,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* CTA Bottom Banner */}
-      <section className="py-10 md:py-16 bg-[#1B8044] text-white">
+      <section className="py-6 md:py-10 bg-[#1B8044] text-white">
         <div className="max-w-5xl mx-auto px-4 text-center space-y-4 sm:space-y-6">
           <h2 className="font-serif-title text-3xl sm:text-4xl font-bold">
             Sajūti dabas dāvāto spēku un vieglumu jau šodien

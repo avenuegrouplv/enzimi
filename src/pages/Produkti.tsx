@@ -1,43 +1,33 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { ProductModal } from '../components/ProductModal';
 import { Product } from '../types';
 import { SEOHead } from '../components/SEOHead';
-import { ShoppingBag, Search, Filter, Sparkles, Leaf } from 'lucide-react';
+import { Search, Sparkles, Leaf, MessageSquare, ShoppingBag } from 'lucide-react';
 
 export const Produkti: React.FC = () => {
   const { t } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-
-  const categories = [
-    { id: 'all', label: t.productsSection.filterAll },
-    { id: 'imunitate', label: t.productsSection.filterImmunity },
-    { id: 'gremosana', label: t.productsSection.filterDigestion },
-    { id: 'energija', label: t.productsSection.filterEnergy },
-    { id: 'relaksacija', label: t.productsSection.filterRelaxation },
-    { id: 'detox', label: t.productsSection.filterDetox },
-  ];
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((p) => {
-      const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
-      const matchesSearch =
+      return (
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.subName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.ingredients.some((ing) => ing.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchesCategory && matchesSearch;
+        p.ingredients.some((ing) => ing.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
     });
-  }, [activeCategory, searchQuery]);
+  }, [searchQuery]);
 
   return (
     <>
       <SEOHead
         title="Enzīmu Dzērieni | E-Veikals"
-        description="Iegādājieties 100% dabiski fermentētus bio-enzīmu dzērienus stikla pudelēs. 10 unikālas garšas imunitātei, gremošanai un enerģijai. Cena €12.99."
+        description="Iegādājieties 100% dabiski fermentētus enzīmu dzērienus. 12 unikālas garšas."
       />
 
       {/* Header Banner */}
@@ -49,11 +39,11 @@ export const Produkti: React.FC = () => {
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            Mūsu iecienītākie enzīmu dzērieni
+            Mūsu enzīmu dzērieni
           </h1>
 
           <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            Katrs dzēriens var tikt pildīts 750ml un 500ml stikla pudelē
+            Pieejami 750ml un 500ml pudelēs
           </p>
         </div>
       </section>
@@ -62,53 +52,33 @@ export const Produkti: React.FC = () => {
       <section className="py-8 sm:py-16 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
           
-          {/* Controls: Search & Category Filter Tabs */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-[#FFFFFF] p-4 rounded-3xl border border-[#CDE8D5] card-soft-shadow">
-            
-            {/* Category Pills */}
-            <div className="flex flex-wrap items-center gap-1.5 w-full lg:w-auto">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all ${
-                    activeCategory === cat.id
-                      ? "bg-[#1B8044] text-white shadow-xs"
-                      : "bg-[#E5F4E9]/70 text-[#2E523A] hover:bg-[#CDE8D5] hover:text-[#122E1F]"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Search Bar */}
-            <div className="relative w-full lg:w-72">
+          {/* Controls: Search Bar */}
+          <div className="flex items-center justify-between gap-4 bg-[#FFFFFF] p-4 rounded-3xl border border-[#CDE8D5] card-soft-shadow">
+            <div className="relative w-full max-w-md mx-auto sm:mx-0">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1B8044]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Meklēt garšu vai sastāvdaļu..."
-                className="w-full pl-10 pr-4 py-2 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044]"
+                placeholder="Meklēt dzērienu vai sastāvdaļu..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044]"
               />
             </div>
-
+            <div className="text-xs font-bold text-[#2E523A] hidden sm:block">
+              Kopā: {filteredProducts.length} dzērieni
+            </div>
           </div>
 
-          {/* Product Grid (10 Cards) */}
+          {/* Product Grid (12 Cards) */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-16 bg-[#FFFFFF] rounded-3xl border border-[#CDE8D5] space-y-3">
               <Leaf className="w-10 h-10 text-[#1B8044] mx-auto opacity-40" />
-              <p className="text-sm font-medium text-[#2E523A]">Netika atrasts neviens dzēriens ar šādiem meklēšanas kritērijiem.</p>
+              <p className="text-sm font-medium text-[#2E523A]">Netika atrasts neviens dzēriens.</p>
               <button
-                onClick={() => {
-                  setActiveCategory('all');
-                  setSearchQuery('');
-                }}
+                onClick={() => setSearchQuery('')}
                 className="px-4 py-2 rounded-xl bg-[#E5F4E9] text-[#122E1F] text-xs font-bold hover:bg-[#CDE8D5]"
               >
-                Atiestatīt meklētāju
+                Parādīt visus dzērienus
               </button>
             </div>
           ) : (
@@ -122,6 +92,29 @@ export const Produkti: React.FC = () => {
               ))}
             </div>
           )}
+
+          {/* Custom Recipe / Individual Order Banner */}
+          <div className="mt-12 bg-gradient-to-r from-[#E5F4E9] via-[#F2FAF4] to-[#E5F4E9] rounded-3xl p-6 sm:p-10 border border-[#CDE8D5] card-soft-shadow flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+            <div className="space-y-2 text-center md:text-left max-w-2xl relative z-10">
+              <div className="inline-flex items-center gap-2 bg-[#FFFFFF] px-3 py-1 rounded-full text-xs font-bold text-[#1B8044] border border-[#CDE8D5] shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#1B8044]" />
+                <span>Individuāls Pasūtījums</span>
+              </div>
+              <h3 className="font-serif-title text-xl sm:text-2xl font-bold text-[#122E1F]">
+                Vēlies dzērienu pēc savas receptes?
+              </h3>
+              <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
+                Neatradi savu iecienītāko dzērienu vai arī vēlies pasūtīt dzērienu, kurš gatavots tieši pēc tavas receptes? Sazinies ar mums!
+              </p>
+            </div>
+            <Link
+              to="/kontakti"
+              className="shrink-0 bg-[#1B8044] text-white hover:bg-[#146334] px-6 py-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-md flex items-center gap-2 relative z-10"
+            >
+              <MessageSquare className="w-4 h-4 text-white" />
+              <span>Sazināties ar mums</span>
+            </Link>
+          </div>
 
         </div>
       </section>

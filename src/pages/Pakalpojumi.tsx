@@ -4,6 +4,9 @@ import { SEOHead } from '../components/SEOHead';
 import { Sparkles, Check, ArrowRight, BookOpen, Users, Package, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import startaKomplektsImg from '../assets/starta-komplekts.webp';
+import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
+
+import pasutietEnzimuDzerienusImg from '../assets/pasutiet-enzimu-dzerienus.webp';
 
 export const Pakalpojumi: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
@@ -13,7 +16,7 @@ export const Pakalpojumi: React.FC = () => {
   const serviceImages: Record<string, string> = {
     komplekti: startaKomplektsImg,
     meistarklases: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80',
-    korporativie: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80',
+    korporativie: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80',
   };
 
   const services = [
@@ -55,16 +58,12 @@ export const Pakalpojumi: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#1B8044]" />
-            <span>Fermentācijas Māksla Tavās rokās</span>
+            <span>Fermentācijas māksla</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
             {t.servicesSection.title}
           </h1>
-
-          <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            Atbalsts enzīmu ražošanai mājas apstākļos
-          </p>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { SEOHead } from '../components/SEOHead';
 import { Leaf, ShieldCheck, Sparkles, Heart, Check, X as XIcon, HelpCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { UsageGuideSection } from '../components/UsageGuideSection';
 
 export const ParEnzimiem: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
@@ -121,7 +122,7 @@ export const ParEnzimiem: React.FC = () => {
                 04
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                Ko dara dzērienā esošās pienskābās baktērijas?
+                Ko dara dzērienā esošās baktērijas?
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
@@ -131,7 +132,7 @@ export const ParEnzimiem: React.FC = () => {
             <div className="bg-[#E5F4E9]/70 p-4 rounded-2xl border border-[#CDE8D5] text-xs text-[#122E1F] flex items-start gap-3">
               <Heart className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
               <div>
-                <strong>Zinātnisks fakts:</strong> Aptuveni 80% no cilvēka imūnsistēmas un 90% serotonīna (laimes hormona) sintēzes notiek tieši zarnu traktā. Tāpēc dzīvās pienskābās baktērijas ir tiešs ceļš uz veselību un labu garastāvokli.
+                <strong>Zinātnisks fakts:</strong> Aptuveni 80% no cilvēka imūnsistēmas un 90% serotonīna (laimes hormona) sintēzes notiek tieši zarnu traktā. Tāpēc dzīvās baktērijas ir tiešs ceļš uz veselību un labu garastāvokli.
               </div>
             </div>
           </div>
@@ -171,6 +172,9 @@ export const ParEnzimiem: React.FC = () => {
         </div>
       </section>
 
+      {/* Usage Guide Educational Section */}
+      <UsageGuideSection />
+
       {/* Comparison Chart */}
       <section className="py-16 bg-[#E5F4E9]/40 border-t border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4">
@@ -191,7 +195,7 @@ export const ParEnzimiem: React.FC = () => {
                     <th className="p-4">Īpašība</th>
                     <th className="p-4 text-center">Rūpnieciskās Sulas / Dzērieni</th>
                     <th className="p-4 text-center bg-[#1B8044]/10 text-[#1B8044]">
-                      Enzimi Bio-Eliksīrs
+                      Enzīmu Dzērieni
                     </th>
                   </tr>
                 </thead>
@@ -207,7 +211,7 @@ export const ParEnzimiem: React.FC = () => {
                     <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">Nē (100% Neapstrādāts)</td>
                   </tr>
                   <tr>
-                    <td className="p-4 font-bold text-[#122E1F]">Dzīvās pienskābās baktērijas</td>
+                    <td className="p-4 font-bold text-[#122E1F]">Dzīvās baktērijas</td>
                     <td className="p-4 text-center text-red-700">Nav</td>
                     <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">Miljoniem probiotiku</td>
                   </tr>

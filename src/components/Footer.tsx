@@ -21,8 +21,8 @@ export const Footer: React.FC = () => {
               <Leaf className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#122E1F]">100% Dabīgas Sostāvdaļas</h4>
-              <p className="text-xs text-[#2E523A]">Svaigi augļi un bioloģiskie augi bez cukura</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">100% dabīgs produkts</h4>
+              <p className="text-xs text-[#2E523A]">Svaigi augļi, dārzeņi un citas dabīgās izejvielas</p>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <h4 className="font-bold text-sm text-[#122E1F]">Dabīgā Fermentācija</h4>
-              <p className="text-xs text-[#2E523A]">Saglabāti visi bio-enzīmi un probiotikas</p>
+              <p className="text-xs text-[#2E523A]">Saglabāti visi enzīmi un probiotikas</p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
               Dabas spēks veselīgai dzīvei
             </p>
             <p className="text-xs text-[#2E523A] leading-relaxed">
-              Enzīmi - Dabiski fermentēti dzērieni, spēks un labsajūta no Latvijas dabas.
+              Enzīmi - Dabiski fermentēti dzērieni veselībai, spēkam un labsajūtai. 100% dabīgs produkts
             </p>
           </div>
 
@@ -144,10 +144,22 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#CDE8D5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#2E523A] font-medium">
           <p>{t.footer.copyright}</p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3">
             <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.privacy}</span>
-            <span>I</span>
+            <span>|</span>
             <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.terms}</span>
+            <span>|</span>
+            <span>
+              Izstrādātājs{' '}
+              <a
+                href="https://sageonmedia.eu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#1B8044] hover:underline"
+              >
+                Sageon Media
+              </a>
+            </span>
           </div>
         </div>
 

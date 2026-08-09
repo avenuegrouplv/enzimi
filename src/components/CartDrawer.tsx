@@ -28,7 +28,8 @@ export const CartDrawer: React.FC = () => {
   if (!isCartOpen) return null;
 
   const deliveryCost = deliveryMethod === 'delivery' ? 3.50 : 0;
-  const finalTotal = cartTotal + deliveryCost;
+  const grandTotal = Math.round((cartTotal + deliveryCost) * 100) / 100;
+  const displayedTotal = isCheckoutStep ? grandTotal : cartTotal;
 
   const handleOrderSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,7 +99,7 @@ export const CartDrawer: React.FC = () => {
                       })}
                     </ul>
                   </div>
-                  <p className="pt-2 border-t border-[#CDE8D5]"><strong>Kopā apmaksai:</strong> €{finalTotal.toFixed(2)}</p>
+                  <p className="pt-2 border-t border-[#CDE8D5]"><strong>Kopā apmaksai:</strong> €{grandTotal.toFixed(2)}</p>
                 </div>
                 <button
                   onClick={handleClose}
@@ -128,10 +129,10 @@ export const CartDrawer: React.FC = () => {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-center gap-3">
                           <img
-                            src={enzimuDzerieniImg}
+                            src={item.product.image || enzimuDzerieniImg}
                             alt={item.product.name}
                             onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).src = '/enzimu-dzerieni.webp';
+                              (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
                             }}
                             className="w-10 h-10 object-contain p-0.5 rounded-xl bg-[#E5F4E9] border border-[#CDE8D5]"
                           />
@@ -308,19 +309,23 @@ export const CartDrawer: React.FC = () => {
           {cart.length > 0 && !isSuccess && (
             <div className="pt-4 border-t border-[#CDE8D5] space-y-3">
               <div className="space-y-1 text-xs text-[#2E523A]">
-                <div className="flex justify-between">
-                  <span>Dzērieni:</span>
-                  <span className="font-bold text-[#122E1F]">€{cartTotal.toFixed(2)}</span>
-                </div>
                 {isCheckoutStep && (
-                  <div className="flex justify-between">
-                    <span>Piegāde:</span>
-                    <span className="font-bold text-[#122E1F]">€{deliveryCost.toFixed(2)}</span>
-                  </div>
+                  <>
+                    <div className="flex justify-between">
+                      <span>Dzērieni:</span>
+                      <span className="font-bold text-[#122E1F]">€{cartTotal.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Piegāde:</span>
+                      <span className="font-bold text-[#122E1F]">
+                        {deliveryCost > 0 ? `€${deliveryCost.toFixed(2)}` : 'Bezmaksas'}
+                      </span>
+                    </div>
+                  </>
                 )}
                 <div className="flex justify-between text-base font-bold text-[#122E1F] pt-1 border-t border-[#CDE8D5]">
                   <span>Kopā:</span>
-                  <span>€{finalTotal.toFixed(2)}</span>
+                  <span>€{displayedTotal.toFixed(2)}</span>
                 </div>
               </div>
 

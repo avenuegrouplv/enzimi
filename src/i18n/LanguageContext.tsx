@@ -147,11 +147,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [cart]);
 
   const cartTotal = useMemo(() => {
-    return cart.reduce((acc, item) => {
+    const sum = cart.reduce((acc, item) => {
       const vol = item.selectedVolume || '750ml';
       const price = item.unitPrice || VOLUME_PRICES[vol] || 12.99;
       return acc + price * item.quantity;
     }, 0);
+    return Math.round(sum * 100) / 100;
   }, [cart]);
 
   const { lang, pageKey } = useMemo(() => {

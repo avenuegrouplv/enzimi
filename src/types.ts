@@ -11,16 +11,13 @@ export interface Product {
   subName: string;
   price: number;
   volume: string;
-  category: 'imunitate' | 'gremosana' | 'energija' | 'relaksacija' | 'detox';
-  categoryLabel: string;
   shortDescription: string;
   fullDescription: string;
   ingredients: string[];
   benefits: string[];
-  tasteNotes: string;
   colorGradient: string; // CSS gradient string for bottle illustration
   bottleAccent: string; // Hex color for label accent
-  badgeText: string;
+  image?: string;
 }
 
 export interface CartItem {

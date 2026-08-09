@@ -32,21 +32,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenModal }
       {/* Bottle Photo Showcase (+10% size) */}
       <div className="my-2 py-4 bg-[#F2FAF4] rounded-2xl border border-[#CDE8D5]/80 flex items-center justify-center relative overflow-hidden group-hover:bg-[#E2F4E7] transition-colors h-52">
         <img
-          src={enzimuDzerieniImg}
+          src={product.image || enzimuDzerieniImg}
           alt={product.name}
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = '/enzimu-dzerieni.webp';
+            (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
           }}
           className="h-full w-auto object-contain drop-shadow-md scale-110 transition-transform duration-300"
         />
       </div>
 
       {/* Product Information */}
-      <div className="space-y-1.5 my-2">
-        <span className="text-[11px] font-bold text-[#1B8044] block">
-          {product.subName}
-        </span>
-        <h3 className="font-serif-title text-lg font-bold text-[#122E1F] group-hover:text-[#1B8044] transition-colors leading-snug line-clamp-1">
+      <div className="space-y-1 my-2">
+        <h3 className="font-serif-title text-[13px] sm:text-sm font-bold text-[#122E1F] group-hover:text-[#1B8044] transition-colors leading-tight truncate" title={product.name}>
           {product.name}
         </h3>
         <p className="text-xs text-[#2E523A] line-clamp-2 leading-relaxed">
