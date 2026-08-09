@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { PRODUCTS } from '../data/products';
@@ -20,15 +20,76 @@ import {
   Award,
   ShieldCheck,
   ChevronRight,
+  ChevronLeft,
   ShoppingBag,
-  HelpCircle,
   ChevronDown
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const servicesData = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80",
+      title: t.servicesSection.service1Title,
+      desc: t.servicesSection.service1Desc,
+      linkText: "Plašāk par apmācībām",
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80",
+      title: t.servicesSection.service2Title,
+      desc: t.servicesSection.service2Desc,
+      linkText: "Plašāk par pasūtījumiem",
+    },
+    {
+      id: 3,
+      image: startaKomplektsImg,
+      fallbackImage: '/starta-komplekts.webp',
+      title: t.servicesSection.service3Title,
+      desc: t.servicesSection.service3Desc,
+      linkText: "Plašāk par pakalpojumiem",
+    },
+  ];
+
+  // Duplicated list to enable seamless 1-by-1 infinite sliding from right to left
+  const extendedServices = [...servicesData, ...servicesData];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentIndex((prev) => prev + 1);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Reset to index 0 without transition when reaching the full cycle
+  useEffect(() => {
+    if (currentIndex === servicesData.length) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(0);
+      }, 500); // 500ms matches duration-500 css transition
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, servicesData.length]);
 
   // Top 4 featured drinks
   const featuredProducts = PRODUCTS.slice(0, 4);
@@ -135,8 +196,11 @@ export const Home: React.FC = () => {
                   <img
                     src={pasutietEnzimuDzerienusImg}
                     alt="Pasūtiet enzīmu dzērienus"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = '/Pasutiet-enzimu-dzerienus.webp';
+                      (e.currentTarget as HTMLImageElement).src = '/pasutiet-enzimu-dzerienus.webp';
                     }}
                     className="h-[238px] w-auto object-contain drop-shadow-md scale-105"
                   />
@@ -233,7 +297,7 @@ export const Home: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-[#1B8044]" />
-                    <span>100% Svaigi augļi, meža ogas un bioloģiskie ārstniecības augi.</span>
+                    <span>100% Svaigi augļi, dārzeņi un meža ogas.</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-[#1B8044]" />
@@ -325,89 +389,106 @@ export const Home: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-[#FFFFFF] p-6 sm:p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
-                  <img
-                    src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80"
-                    alt={t.servicesSection.service1Title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center">
-                  {t.servicesSection.service1Title}
-                </h3>
-                <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
-                  {t.servicesSection.service1Desc}
-                </p>
-              </div>
-              <div className="pt-6">
-                <Link
-                  to={getLocalizedPath("services")}
-                  className="text-xs font-bold text-[#1B8044] hover:underline flex items-center gap-1"
-                >
-                  <span>Plašāk par apmācībām</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+          {/* Services Horizontal Sliding Carousel (Right to Left - One by One) */}
+          <div className="relative overflow-hidden w-full py-2 group px-2 sm:px-4">
+            {/* Previous / Next buttons */}
+            <button
+              onClick={() => {
+                if (currentIndex === 0) {
+                  setIsTransitioning(false);
+                  setCurrentIndex(servicesData.length);
+                  setTimeout(() => {
+                    setIsTransitioning(true);
+                    setCurrentIndex(servicesData.length - 1);
+                  }, 20);
+                } else {
+                  setIsTransitioning(true);
+                  setCurrentIndex((prev) => prev - 1);
+                }
+              }}
+              className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
+              aria-label="Iepriekšējais"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => {
+                setIsTransitioning(true);
+                setCurrentIndex((prev) => prev + 1);
+              }}
+              className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] flex items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
+              aria-label="Nākamais"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            <div className="overflow-hidden w-full">
+              <div
+                className={`flex gap-6 ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
+                style={{
+                  transform: `translateX(${
+                    isMobile
+                      ? `calc(-${currentIndex} * (100% + 24px))`
+                      : `calc(-${currentIndex} * (100% + 24px) / 3)`
+                  })`,
+                }}
+              >
+                {extendedServices.map((service, index) => (
+                  <div
+                    key={`${service.id}-${index}`}
+                    className="bg-[#FFFFFF] p-6 sm:p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between w-full md:w-[calc((100%-48px)/3)] shrink-0 box-border"
+                  >
+                    <div className="space-y-3">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          onError={(e) => {
+                            if (service.fallbackImage) {
+                              (e.currentTarget as HTMLImageElement).src = service.fallbackImage;
+                            }
+                          }}
+                          className={`w-full h-full ${service.id === 3 ? 'object-contain p-1' : 'object-cover'}`}
+                        />
+                      </div>
+                      <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    {/* Action Link Button inside each card */}
+                    <div className="pt-4 mt-3 border-t border-[#E5F4E9]">
+                      <Link
+                        to={getLocalizedPath("services")}
+                        className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#FAF9F5] hover:bg-[#E5F4E9] active:bg-[#E5F4E9] border border-[#CDE8D5] text-xs font-bold text-[#1B8044] transition-colors"
+                      >
+                        <span>{service.linkText}</span>
+                        <ArrowRight className="w-4 h-4 text-[#1B8044]" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-[#FFFFFF] p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
-                  <img
-                    src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80"
-                    alt={t.servicesSection.service2Title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center">
-                  {t.servicesSection.service2Title}
-                </h3>
-                <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
-                  {t.servicesSection.service2Desc}
-                </p>
-              </div>
-              <div className="pt-6">
-                <Link
-                  to={getLocalizedPath("services")}
-                  className="text-xs font-bold text-[#1B8044] hover:underline flex items-center gap-1"
-                >
-                  <span>Plašāk par pasūtījumiem</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-[#FFFFFF] p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] overflow-hidden border border-[#CDE8D5] shrink-0 mb-2 shadow-2xs">
-                  <img
-                    src={startaKomplektsImg}
-                    alt={t.servicesSection.service3Title}
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = '/starta-komplekts.webp';
-                    }}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-serif-title text-lg font-bold text-[#122E1F] min-h-[52px] flex items-center">
-                  {t.servicesSection.service3Title}
-                </h3>
-                <p className="text-xs text-[#2E523A] leading-relaxed min-h-[48px]">
-                  {t.servicesSection.service3Desc}
-                </p>
-              </div>
-              <div className="pt-6">
-                <Link
-                  to={getLocalizedPath("services")}
-                  className="text-xs font-bold text-[#1B8044] hover:underline flex items-center gap-1"
-                >
-                  <span>Plašāk par pakalpojumiem</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+            {/* Navigation Dots */}
+            <div className="flex justify-center items-center gap-2 mt-6">
+              {servicesData.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setIsTransitioning(true);
+                    setCurrentIndex(idx);
+                  }}
+                  aria-label={`Slaids ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentIndex % servicesData.length === idx ? 'w-6 bg-[#1B8044]' : 'w-2 bg-[#CDE8D5]'
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -417,10 +498,6 @@ export const Home: React.FC = () => {
       <section className="py-6 md:py-10 bg-[#FAF9F5] border-t border-[#CDE8D5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B8044] uppercase tracking-wider">
-              <HelpCircle className="w-4 h-4" />
-              <span>Biežāk Uzdotie Jautājumi</span>
-            </div>
             <h2 className="font-serif-title text-2xl sm:text-4xl font-bold text-[#122E1F]">
               Biežāk uzdotie jautājumi par enzīmu dzērieniem
             </h2>
@@ -464,7 +541,7 @@ export const Home: React.FC = () => {
             Sajūti dabas dāvāto spēku un vieglumu jau šodien
           </h2>
           <p className="text-xs sm:text-sm text-[#E5F4E9] max-w-xl mx-auto leading-relaxed">
-            Izvēlies kādu no mūsu unikālajiem enzīmu dzērieniem vai izmanto kādu citu no mūsu piedāvātajiem pakalpojumiem
+            Izvēlies kādu no mūsu gatavotajiem enzīmu dzērieniem vai izmanto kādu citu no mūsu piedāvātajiem pakalpojumiem
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link

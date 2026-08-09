@@ -45,17 +45,17 @@ export const PRODUCTS: Product[] = [
     image: enzimuDzerieniImg
   },
   {
-    id: 'mellenju-citronmelisas',
-    name: 'Melleņu un Citronmelisas Enzīms',
-    subName: 'Mellenes un citronmelisa',
+    id: 'abolu-vaniljas',
+    name: 'Ābolu un Vaniļas Enzīms',
+    subName: 'Āboli un vaniļa',
     price: 12.99,
     volume: '750 ml / 500 ml',
-    shortDescription: 'Dabīgs melleņu un citronmelisas enzīmu dzēriens.',
-    fullDescription: 'Enzīmu dzēriens no dārza mellenēm un smaržīgās citronmelisas.',
-    ingredients: ['Mellenes', 'Citronmelisa', 'Medus', 'Krustnagliņas', 'Ūdens'],
-    benefits: ['Dabīgi fermenti', 'Antioksidantu avots', 'Bez saldinātājiem'],
-    colorGradient: 'from-[#4D908E] to-[#277DA1]',
-    bottleAccent: '#277DA1',
+    shortDescription: 'Dabīgs ābolu, vaniļas un kanēļa enzīmu dzēriens.',
+    fullDescription: 'Enzīmu dzēriens no āboliem, vaniļas, kanēļa, kanēļa standziņām un piparmētras.',
+    ingredients: ['Āboli', 'Kanēlis', 'Kanēļa standziņas', 'Vaniļa', 'Piparmētra', 'Medus', 'Krustnagliņas', 'Ūdens'],
+    benefits: ['Augļu fermenti', 'Dabīga vaniļa un kanēlis', 'Bez konservantiem'],
+    colorGradient: 'from-[#E07A5F] to-[#F2CC8F]',
+    bottleAccent: '#E07A5F',
     image: enzimuDzerieniImg
   },
   {

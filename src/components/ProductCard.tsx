@@ -29,15 +29,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenModal }
       className="group relative bg-[#FFFFFF] rounded-3xl border border-[#CDE8D5] p-5 card-soft-shadow cursor-pointer flex flex-col justify-between transition-all duration-300 hover:border-[#1B8044]/40"
     >
       
-      {/* Bottle Photo Showcase (+10% size) */}
+      {/* Bottle Photo Showcase */}
       <div className="my-2 py-4 bg-[#F2FAF4] rounded-2xl border border-[#CDE8D5]/80 flex items-center justify-center relative overflow-hidden group-hover:bg-[#E2F4E7] transition-colors h-52">
         <img
           src={product.image || enzimuDzerieniImg}
           alt={product.name}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          width="200"
+          height="176"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
           }}
-          className="h-full w-auto object-contain drop-shadow-md scale-110 transition-transform duration-300"
+          className="h-44 max-h-full w-auto object-contain drop-shadow-md"
         />
       </div>
 

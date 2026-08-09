@@ -33,7 +33,7 @@ function AppContent() {
       <Header />
 
       {/* Main Content Area */}
-      <main id="main-content" className="flex-1 relative z-10 pt-[72px]">
+      <main id="main-content" className="flex-1 relative z-10 pt-[88px] md:pt-[72px]">
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* LV Routes */}

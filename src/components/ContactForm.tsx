@@ -14,13 +14,21 @@ export const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error('Kļūda sūtot ziņu:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1000);
+    }
   };
 
   return (
@@ -30,11 +38,11 @@ export const ContactForm: React.FC = () => {
           <div className="w-16 h-16 rounded-full bg-[#16A34A]/20 text-[#16A34A] flex items-center justify-center mx-auto">
             <CheckCircle2 className="w-10 h-10" />
           </div>
-          <h3 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-            Ziņa Veiksmīgi Nosūtīta!
+          <h3 className="font-serif-title text-xl font-bold text-[#122E1F]">
+            Paldies. Jūsu ziņa ir veiksmīgi nosūtīta!
           </h3>
-          <p className="text-xs text-[#2E523A] max-w-sm mx-auto leading-relaxed">
-            {t.contactSection.successMessage}
+          <p className="text-sm text-[#2E523A] max-w-sm mx-auto leading-relaxed">
+            Mēs ar jums sazināsimies tuvākajā laikā.
           </p>
           <button
             onClick={() => {

@@ -11,7 +11,7 @@ export const Kontakti: React.FC = () => {
     <>
       <SEOHead
         title="Kontakti"
-        description="Sazinieties ar Enzimi komandu. Adrese, tālrunis, e-pasts un saziņas forma."
+        description="Sazinieties ar Enzīmi komandu. Adrese, tālrunis, e-pasts un saziņas forma."
       />
 
       {/* Header Banner */}
@@ -46,7 +46,7 @@ export const Kontakti: React.FC = () => {
                     Kontaktinformācija
                   </span>
                   <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                    Enzimi
+                    Enzīmi
                   </h2>
                 </div>
 

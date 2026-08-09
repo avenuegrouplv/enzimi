@@ -30,14 +30,16 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
           {/* Bottle Photo Showcase Column */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-6 bg-[#F2FAF4] rounded-2xl border border-[#CDE8D5] relative h-80">
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-6 bg-[#F2FAF4] rounded-2xl border border-[#CDE8D5] relative min-h-[250px] h-80">
             <img
               src={product.image || enzimuDzerieniImg}
               alt={product.name}
+              loading="eager"
+              decoding="async"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
               }}
-              className="h-56 w-auto object-contain drop-shadow-lg"
+              className="h-60 max-h-full w-auto object-contain drop-shadow-lg"
             />
           </div>
 

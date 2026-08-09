@@ -96,7 +96,7 @@ export const enTranslations: Translations = {
     sendingBtn: "Sending...",
     successMessage: "Thank you! Your message has been sent. We will get back to you shortly.",
     phoneInfo: "Information to follow",
-    emailInfo: "info@enzimi.lv",
+    emailInfo: "enzimi@inbox.lv",
     addressInfo: "Information to follow",
     hoursInfo: "Mon-Fri: 09:00 - 18:00 | Sat: 10:00 - 15:00",
   },
@@ -116,10 +116,10 @@ export const enTranslations: Translations = {
     closeBtn: "Close",
   },
   footer: {
-    tagline: "Enzimi - Naturally fermented bio-active drinks for health and daily vitality.",
+    tagline: "Enzīmi - Naturally fermented bio-active drinks for health and daily vitality.",
     quickLinks: "Quick Links",
     legal: "Legal Info",
-    copyright: "© 2025 Enzimi. All rights reserved.",
+    copyright: "© 2025 Enzīmi. All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Cookie Policy",
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
+import { PRODUCTS } from '../data/products';
 import { Leaf, Phone, Mail, MapPin, Heart, ShieldCheck, Truck, Sparkles } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -110,11 +111,13 @@ export const Footer: React.FC = () => {
               Populārākie Dzērieni
             </h3>
             <ul className="space-y-2.5 text-xs text-[#2E523A]">
-              <li>Smiltsērkšķu un Ingvera Enzīms</li>
-              <li>Dzērveņu un Rožu Gūžu Enzīms</li>
-              <li>Ābolu un Kanēļa Biosvaigums</li>
-              <li>Melleņu un Lavandas Miera Enzīms</li>
-              <li>Upeņu un Piparmētras Enerģija</li>
+              {PRODUCTS.slice(0, 5).map((product) => (
+                <li key={product.id}>
+                  <Link to={getLocalizedPath("products")} className="hover:text-[#1B8044] transition-colors">
+                    {product.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -150,7 +153,7 @@ export const Footer: React.FC = () => {
             <span className="hover:text-[#1B8044] cursor-pointer transition-colors">{t.footer.terms}</span>
             <span>|</span>
             <span>
-              Izstrādātājs{' '}
+              Izstrādātājs:{' '}
               <a
                 href="https://sageonmedia.eu"
                 target="_blank"

@@ -96,7 +96,7 @@ export const ruTranslations: Translations = {
     sendingBtn: "Отправка...",
     successMessage: "Спасибо! Ваше сообщение получено. Мы свяжемся с вами в ближайшее время.",
     phoneInfo: "Информация следует",
-    emailInfo: "info@enzimi.lv",
+    emailInfo: "enzimi@inbox.lv",
     addressInfo: "Информация следует",
     hoursInfo: "Пн-Пт: 09:00 - 18:00 | Сб: 10:00 - 15:00",
   },
@@ -116,10 +116,10 @@ export const ruTranslations: Translations = {
     closeBtn: "Закрыть",
   },
   footer: {
-    tagline: "Enzimi - Натурально ферментированные напитки, сила и здоровье природы Латвии.",
+    tagline: "Enzīmi - Натурально ферментированные напитки, сила и здоровье природы Латвии.",
     quickLinks: "Быстрые ссылки",
     legal: "Правовая информация",
-    copyright: "© 2025 Enzimi. Все права защищены.",
+    copyright: "© 2025 Enzīmi. Все права защищены.",
     privacy: "Политика конфиденциальности",
     terms: "Политика использования файлов cookie",
   }

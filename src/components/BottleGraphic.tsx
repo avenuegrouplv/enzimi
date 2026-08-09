@@ -20,7 +20,7 @@ export const BottleGraphic: React.FC<BottleGraphicProps> = ({
   }[size];
 
   return (
-    <div className={`relative flex items-center justify-center ${sizeClasses} select-none transition-transform duration-300 hover:scale-105`}>
+    <div className={`relative flex items-center justify-center ${sizeClasses} select-none`}>
       {/* Soft Glow behind bottle */}
       <div
         className="absolute inset-4 rounded-full blur-xl opacity-30 pointer-events-none"

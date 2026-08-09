@@ -96,28 +96,28 @@ export const UsageGuideSection: React.FC = () => {
             <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-2">
               <span className="text-xs font-bold text-[#1B8044] block">Dienas deva</span>
               <p className="text-xs text-[#2E523A]">
-                Sāciet ar <strong>30–50 ml</strong> dienā. Kad organisms pieradīs, devu var palielināt līdz <strong>100–150 ml</strong> dienā.
+                Sāciet ar 30–50 ml dienā. Kad organisms pieradīs, devu variet palielināt līdz 100–150 ml dienā.
               </p>
             </div>
 
             <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-2">
               <span className="text-xs font-bold text-[#1B8044] block">Jaukšana ar ūdeni</span>
               <p className="text-xs text-[#2E523A]">
-                Var lietot tīrā veidā kā koncentrātu vai atšķaidīt ar vēsu avota vai gāzētu ūdeni proporcijā <strong>1:3 līdz 1:5</strong>.
+                Var lietot tīrā veidā kā koncentrātu vai atšķaidīt ar vēsu ūdeni proporcijā 1:3 līdz 1:5.
               </p>
             </div>
 
             <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-2">
               <span className="text-xs font-bold text-[#1B8044] block">Kursa ilgums</span>
               <p className="text-xs text-[#2E523A]">
-                Vislabākos rezultātus sniedz <strong>3–4 nedēļu</strong> regulārs kurss, īpaši pavasara un rudens gadalaiku maiņā.
+                Vislabākos rezultātus sniedz 3–4 nedēļu regulārs kurss, īpaši pavasara un rudens gadalaiku maiņā.
               </p>
             </div>
 
             <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-2">
               <span className="text-xs font-bold text-[#1B8044] block">Uzglabāšana</span>
               <p className="text-xs text-[#2E523A]">
-                Pēc atvēršanas glabāt ledusskapī (<strong>+2°C līdz +6°C</strong>), jo dzēriens ir dzīvs un turpina maigi fermentēties.
+                Pēc pudeles atvēršanas glabāt ledusskapī (+2°C līdz +6°C). Dzēriens ir dzīvs un tas turpina fermentēties arī pēc pudeles atvēršanas, ledusskapī tas notiek lēnāk.
               </p>
             </div>
           </div>
@@ -126,9 +126,9 @@ export const UsageGuideSection: React.FC = () => {
           <div className="bg-[#E5F4E9]/80 p-4 sm:p-5 rounded-2xl border border-[#CDE8D5] flex items-start gap-3.5">
             <AlertCircle className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
             <div className="text-xs sm:text-sm text-[#122E1F] space-y-1">
-              <strong className="font-bold block">Svarīgs Zelta Likums:</strong>
+              <strong className="font-bold block">Svarīgs noteikums:</strong>
               <p className="text-[#2E523A] leading-relaxed">
-                Nekad nepievienojiet enzīmu dzērienu karstam ūdenim vai tējai (virs 40°C)! Karstuma ietekmē dzīvās baktērijas un vērtīgie fermenti iet bojā. Dzērienam jābūt vēsā vai istabas temperatūrā.
+                Nekad nepievienojiet enzīmu dzērienu karstam ūdenim vai tējai (virs 40°C)! Karstuma ietekmē dzīvās baktērijas un vērtīgie fermenti aiziet bojā. Dzērienam jābūt vēsā vai istabas temperatūrā.
               </p>
             </div>
           </div>

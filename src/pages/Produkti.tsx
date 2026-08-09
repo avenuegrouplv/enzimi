@@ -104,7 +104,7 @@ export const Produkti: React.FC = () => {
                 Vēlies dzērienu pēc savas receptes?
               </h3>
               <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-                Neatradi savu iecienītāko dzērienu vai arī vēlies pasūtīt dzērienu, kurš gatavots tieši pēc tavas receptes? Sazinies ar mums!
+                Neatradi savu iecienītāko dzērienu vai arī vēlies pasūtīt dzērienu, kurš gatavots tieši pēc tavas receptes?
               </p>
             </div>
             <Link

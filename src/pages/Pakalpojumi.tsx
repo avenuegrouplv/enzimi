@@ -42,7 +42,7 @@ export const Pakalpojumi: React.FC = () => {
       desc: t.servicesSection.service3Desc,
       icon: Package,
       details: t.servicesSection.service3Details,
-      priceNote: '750 EUR',
+      priceNote: '€ 850.00',
     },
   ];
 
@@ -50,7 +50,7 @@ export const Pakalpojumi: React.FC = () => {
     <>
       <SEOHead
         title="Pakalpojumi"
-        description="Mājas ražošanas meistarklases, fermentācijas konsultācijas un korporatīvie pasūtījumi no Enzimi."
+        description="Mājas ražošanas meistarklases, fermentācijas konsultācijas un korporatīvie pasūtījumi no Enzīmi."
       />
 
       {/* Header Banner */}
@@ -91,7 +91,7 @@ export const Pakalpojumi: React.FC = () => {
                                 (e.currentTarget as HTMLImageElement).src = '/starta-komplekts.webp';
                               }
                             }}
-                            className="w-full h-full object-cover"
+                            className={`w-full h-full ${s.id === 'komplekti' ? 'object-contain p-1' : 'object-cover'}`}
                           />
                         ) : (
                           <IconComp className="w-8 h-8" />
