@@ -17,8 +17,8 @@ export const UsageGuideSection: React.FC = () => {
 
         {/* Grid 1: Kad lietot (When to use) */}
         <div className="space-y-4">
-          <h3 className="font-serif-title text-xl font-bold text-[#122E1F] flex items-center gap-2">
-            <Clock className="w-5 h-5 text-[#1B8044]" />
+          <h3 className="font-serif-title text-xl font-bold text-[#122E1F] flex items-start gap-2.5">
+            <Clock className="w-5 h-5 text-[#1B8044] shrink-0 mt-1" />
             <span>1. Kad vislabāk lietot enzīmu dzērienu?</span>
           </h3>
 
@@ -87,8 +87,8 @@ export const UsageGuideSection: React.FC = () => {
 
         {/* Grid 2: Kā pareizi lietot (How to use & Tips) */}
         <div className="bg-[#FFFFFF] p-6 sm:p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-6">
-          <h3 className="font-serif-title text-xl font-bold text-[#122E1F] flex items-center gap-2">
-            <Droplets className="w-5 h-5 text-[#1B8044]" />
+          <h3 className="font-serif-title text-xl font-bold text-[#122E1F] flex items-start gap-2.5">
+            <Droplets className="w-5 h-5 text-[#1B8044] shrink-0 mt-1" />
             <span>2. Pagatavošanas un lietošanas noteikumi</span>
           </h3>
 

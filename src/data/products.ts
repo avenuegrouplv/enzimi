@@ -4,7 +4,7 @@ import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
 export const PRODUCTS: Product[] = [
   {
     id: 'smiltserksku-ingvers',
-    name: 'Smiltsērkšķu un Ingvera Enzīms',
+    name: 'Smiltsērkšķu un ingvera enzīms',
     subName: 'Smiltsērkšķi un ingvers',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'dzervenju-laima',
-    name: 'Dzērveņu un Laima Enzīms',
+    name: 'Dzērveņu un laima enzīms',
     subName: 'Dzērvenes un laims',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'abolu-kanela-biosvaigums',
-    name: 'Ābolu un Kanēļa Enzīms',
+    name: 'Ābolu un kanēļa enzīms',
     subName: 'Āboli un kanēlis',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'abolu-vaniljas',
-    name: 'Ābolu un Vaniļas Enzīms',
+    name: 'Ābolu un vaniļas enzīms',
     subName: 'Āboli un vaniļa',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'upenu-piparmetras',
-    name: 'Upeņu un Piparmētras Enzīms',
+    name: 'Upeņu un piparmētras enzīms',
     subName: 'Upenes un piparmētra',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'aroniju-abolu',
-    name: 'Aroniju un Ābolu Enzīms',
+    name: 'Aroniju un ābolu enzīms',
     subName: 'Aronijas un āboli',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -88,7 +88,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'kirsu-avenu',
-    name: 'Ķiršu un Aveņu Enzīms',
+    name: 'Ķiršu un aveņu enzīms',
     subName: 'Ķirši un avenes',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -102,7 +102,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'sarkano-avenu-citronzales',
-    name: 'Aveņu un Citronzāles Enzīms',
+    name: 'Aveņu un citronzāles enzīms',
     subName: 'Avenes un citronzāle',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -116,7 +116,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'piladzu-liepziedu',
-    name: 'Pīlādžu un Liepziedu Enzīms',
+    name: 'Pīlādžu un liepziedu enzīms',
     subName: 'Pīlādži un liepziedi',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'meza-ogu-priedes',
-    name: 'Meža Ogu un Priedes Pumpuru Enzīms',
+    name: 'Meža ogu un priedes pumpuru enzīms',
     subName: 'Meža ogas un priedes pumpuri',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -144,7 +144,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'rabarberu-ingvers',
-    name: 'Rabarberu un Ingvera Enzīms',
+    name: 'Rabarberu un ingvera enzīms',
     subName: 'Rabarberi un ingvers',
     price: 12.99,
     volume: '750 ml / 500 ml',
@@ -158,7 +158,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'cidoniju-piladzu',
-    name: 'Cidoniju un Pīlādžu Enzīms',
+    name: 'Cidoniju un pīlādžu enzīms',
     subName: 'Cidonijas un pīlādži',
     price: 12.99,
     volume: '750 ml / 500 ml',

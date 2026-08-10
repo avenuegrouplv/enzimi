@@ -390,7 +390,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Services Horizontal Sliding Carousel (Right to Left - One by One) */}
-          <div className="relative overflow-hidden w-full py-2 group px-2 sm:px-4">
+          <div className="relative overflow-hidden w-full py-4 group px-2 sm:px-4">
             {/* Previous / Next buttons (Desktop only) */}
             <button
               onClick={() => {
@@ -422,7 +422,7 @@ export const Home: React.FC = () => {
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div className="overflow-hidden w-full">
+            <div className="overflow-hidden w-full py-3 -my-3 px-1 -mx-1">
               <div
                 className={`flex gap-6 ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
                 style={{

@@ -23,6 +23,14 @@ body, html, #root {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: auto !important;
+}
+
+/* Hardware accelerate fixed header for buttery smooth scrolling */
+header {
+  transform: translateZ(0);
+  will-change: padding, background-color;
 }
 
 /* Headings with warm Playfair Display serif or clean Jakarta display */

@@ -27,7 +27,7 @@ function AppContent() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#FAF7F2] text-[#3D2C22] transition-colors duration-300 relative overflow-x-hidden font-sans">
+    <div className="min-h-screen flex flex-col justify-between bg-[#FAF7F2] text-[#3D2C22] relative overflow-x-hidden font-sans">
       
       {/* Top Header */}
       <Header />
