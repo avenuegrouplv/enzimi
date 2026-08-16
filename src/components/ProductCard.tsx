@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenModal }
           width="200"
           height="176"
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
+            (e.currentTarget as HTMLImageElement).src = '/Enzimu-dzerieni.webp';
           }}
           className="h-44 max-h-full w-auto object-contain drop-shadow-md"
         />

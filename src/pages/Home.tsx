@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
     {
       id: 3,
       image: startaKomplektsImg,
-      fallbackImage: '/starta-komplekts.webp',
+      fallbackImage: '/Starta-komplekts.webp',
       title: t.servicesSection.service3Title,
       desc: t.servicesSection.service3Desc,
       linkText: "Plašāk par pakalpojumiem",
@@ -144,10 +144,16 @@ export const Home: React.FC = () => {
             {/* Hero Left Text Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F4E9] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
-                <Leaf className="w-4 h-4 text-[#1B8044]" />
-                <span>{t.hero.badge}</span>
+              {/* Badges */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] text-xs font-bold shadow-2xs">
+                  <span className="w-2 h-2 rounded-full bg-[#D97706] animate-pulse" />
+                  <span>Šī mājaslapa ir izstrādes stadijā</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F4E9] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
+                  <Leaf className="w-4 h-4 text-[#1B8044]" />
+                  <span>{t.hero.badge}</span>
+                </div>
               </div>
 
               {/* Title */}

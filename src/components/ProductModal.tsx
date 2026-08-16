@@ -37,7 +37,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               loading="eager"
               decoding="async"
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
+                (e.currentTarget as HTMLImageElement).src = '/Enzimu-dzerieni.webp';
               }}
               className="h-60 max-h-full w-auto object-contain drop-shadow-lg"
             />

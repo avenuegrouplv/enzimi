@@ -169,7 +169,7 @@ export const CartDrawer: React.FC = () => {
                             src={item.product.image || enzimuDzerieniImg}
                             alt={item.product.name}
                             onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).src = enzimuDzerieniImg;
+                              (e.currentTarget as HTMLImageElement).src = '/Enzimu-dzerieni.webp';
                             }}
                             className="w-10 h-10 object-contain p-0.5 rounded-xl bg-[#E5F4E9] border border-[#CDE8D5]"
                           />

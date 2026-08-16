@@ -84,14 +84,19 @@ export const Pakalpojumi: React.FC = () => {
                       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#E5F4E9] text-[#1B8044] flex items-center justify-center shrink-0 overflow-hidden border border-[#CDE8D5] shadow-2xs">
                         {serviceImages[s.id] ? (
                           <img
-                            src={serviceImages[s.id]}
-                            alt={s.title}
+                            src={serviceImages[s.id] || (s.id === 'komplekti' ? '/Starta-komplekts.webp' : '')}
+                            alt=""
+                            loading="eager"
+                            decoding="async"
                             onError={(e) => {
                               if (s.id === 'komplekti') {
-                                (e.currentTarget as HTMLImageElement).src = '/starta-komplekts.webp';
+                                const target = e.currentTarget as HTMLImageElement;
+                                if (!target.src.includes('Starta-komplekts.webp')) {
+                                  target.src = '/Starta-komplekts.webp';
+                                }
                               }
                             }}
-                            className={`w-full h-full ${s.id === 'komplekti' ? 'object-contain p-1' : 'object-cover'}`}
+                            className={`w-full h-full ${s.id === 'komplekti' ? 'object-contain p-1.5' : 'object-cover'}`}
                           />
                         ) : (
                           <IconComp className="w-8 h-8" />
