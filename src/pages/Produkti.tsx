@@ -9,25 +9,26 @@ import { SEOHead } from '../components/SEOHead';
 import { Search, Sparkles, Leaf, MessageSquare, ShoppingBag } from 'lucide-react';
 
 export const Produkti: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, getLocalizedPath, products } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const pSec = t.productsSection;
 
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((p) => {
+    return products.filter((p) => {
       return (
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.subName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.ingredients.some((ing) => ing.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     });
-  }, [searchQuery]);
+  }, [products, searchQuery]);
 
   return (
     <>
       <SEOHead
-        title="Enzīmu Dzērieni | E-Veikals"
-        description="Iegādājieties 100% dabiski fermentētus enzīmu dzērienus. 12 unikālas garšas."
+        title={`${pSec.title} | E-Veikals`}
+        description={pSec.subtitle}
       />
 
       {/* Header Banner */}
@@ -35,15 +36,15 @@ export const Produkti: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <ShoppingBag className="w-4 h-4 text-[#1B8044]" />
-            <span>E-veikala piedāvājums</span>
+            <span>{pSec.headerBadge}</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            Mūsu enzīmu dzērieni
+            {pSec.title}
           </h1>
 
           <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            Pieejami 750ml un 500ml pudelēs
+            {pSec.subtitle}
           </p>
         </div>
       </section>
@@ -60,12 +61,12 @@ export const Produkti: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Meklēt dzērienu vai sastāvdaļu..."
+                placeholder={pSec.searchPlaceholder}
                 className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5] text-xs text-[#122E1F] focus:outline-none focus:border-[#1B8044]"
               />
             </div>
             <div className="text-xs font-bold text-[#2E523A] hidden sm:block">
-              Kopā: {filteredProducts.length} dzērieni
+              {pSec.totalDrinks.replace('{count}', filteredProducts.length.toString())}
             </div>
           </div>
 
@@ -73,12 +74,12 @@ export const Produkti: React.FC = () => {
           {filteredProducts.length === 0 ? (
             <div className="text-center py-16 bg-[#FFFFFF] rounded-3xl border border-[#CDE8D5] space-y-3">
               <Leaf className="w-10 h-10 text-[#1B8044] mx-auto opacity-40" />
-              <p className="text-sm font-medium text-[#2E523A]">Netika atrasts neviens dzēriens.</p>
+              <p className="text-sm font-medium text-[#2E523A]">{pSec.noProductsFound}</p>
               <button
                 onClick={() => setSearchQuery('')}
                 className="px-4 py-2 rounded-xl bg-[#E5F4E9] text-[#122E1F] text-xs font-bold hover:bg-[#CDE8D5]"
               >
-                Parādīt visus dzērienus
+                {pSec.showAllBtn}
               </button>
             </div>
           ) : (
@@ -98,21 +99,21 @@ export const Produkti: React.FC = () => {
             <div className="space-y-2 text-center md:text-left max-w-2xl relative z-10">
               <div className="inline-flex items-center gap-2 bg-[#FFFFFF] px-3 py-1 rounded-full text-xs font-bold text-[#1B8044] border border-[#CDE8D5] shadow-2xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#1B8044]" />
-                <span>Individuāls Pasūtījums</span>
+                <span>{pSec.customOrderBadge}</span>
               </div>
               <h3 className="font-serif-title text-xl sm:text-2xl font-bold text-[#122E1F]">
-                Vēlies dzērienu pēc savas receptes?
+                {pSec.customOrderTitle}
               </h3>
               <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-                Neatradi savu iecienītāko dzērienu vai arī vēlies pasūtīt dzērienu, kurš gatavots tieši pēc tavas receptes?
+                {pSec.customOrderDesc}
               </p>
             </div>
             <Link
-              to="/kontakti"
+              to={getLocalizedPath("contact")}
               className="shrink-0 bg-[#1B8044] text-white hover:bg-[#146334] px-6 py-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-md flex items-center gap-2 relative z-10"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>Sazināties ar mums</span>
+              <span>{pSec.customOrderBtn}</span>
             </Link>
           </div>
 

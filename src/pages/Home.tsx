@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
-  const { t, getLocalizedPath } = useLanguage();
+  const { t, getLocalizedPath, products } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,14 +49,14 @@ export const Home: React.FC = () => {
       image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80",
       title: t.servicesSection.service1Title,
       desc: t.servicesSection.service1Desc,
-      linkText: "Plašāk par apmācībām",
+      linkText: t.servicesPreview.learnMoreBtn,
     },
     {
       id: 2,
       image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80",
       title: t.servicesSection.service2Title,
       desc: t.servicesSection.service2Desc,
-      linkText: "Plašāk par pasūtījumiem",
+      linkText: t.servicesPreview.orderMoreBtn,
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ export const Home: React.FC = () => {
       fallbackImage: '/Starta-komplekts.webp',
       title: t.servicesSection.service3Title,
       desc: t.servicesSection.service3Desc,
-      linkText: "Plašāk par pakalpojumiem",
+      linkText: t.servicesPreview.servicesMoreBtn,
     },
   ];
 
@@ -92,44 +92,15 @@ export const Home: React.FC = () => {
   }, [currentIndex, servicesData.length]);
 
   // Top 4 featured drinks
-  const featuredProducts = PRODUCTS.slice(0, 4);
+  const featuredProducts = products.slice(0, 4);
 
-  const faqs = [
-    {
-      q: "Vai enzīmu dzērieni ir veselīgi organismam?",
-      a: "Enzīmu dzērieni ir izcili veselīgi, jo tie satur miljoniem dzīvu baktēriju (probiotiku), aminoskābes un aktīvus fermentus. Tie dabiskā veidā uzlabo zarnu mikrofloru, veicina uzturvielu uzsūkšanos, stiprina imūnsistēmu un sniedz organismam ilgtspējīgu enerģiju.",
-    },
-    {
-      q: "Vai ar enzīmu dzērieniem var aizvietot veikalos nopērkamos saldinātos dzērienus un limonādes?",
-      a: "Jā, enzīmu dzēriens ir lieliska un veselīga alternatīva rūpnieciski ražotajām limonādēm un saldinātajām sulām. Tas sniedz patīkamu, atspirdzinošu un dabiski fermentētu garšu bez kaitīgā cukura, sintētiskām krāsvielām un konservantiem, vienlaikus uzlabojot pašsajūtu un veselību.",
-    },
-    {
-      q: "Kādas ir enzīmu dzērienu galvenās priekšrocības?",
-      a: "Enzīmu dzērienu galvenās priekšrocības ir:\n• ATBALSTA GREMOŠANAS SISTĒMU UN VIELMAIŅU\n• STIPRINA IMUNITĀTI UN UZLABO PAŠSAJŪTU\n• DABISKS ATBALSTS AKNĀM, NIERĒM UN CITĀM ĶERMEŅA FUNKCIJĀM\n• NODROŠINA ENERĢIJAS ATJAUNOŠANOS UN DZĪVOTSPĒKU\n• BEZ CUKURA – SALDINĀTS AR MEDU, DABĪGS UN VESELĪGS RISINĀJUMS",
-    },
-    {
-      q: "Kāda ir ieteicamā ikdienas enzīmu dzēriena porcija?",
-      a: "Ieteicamā ikdienas porcija ir 50-100 ml 15-20 minūtes pirms ēšanas vai no rīta tukšā dūšā. Dzērienu var dzert tīrā veidā vai atšķaidīt ar vēsu ūdeni. Nav ieteicams jaukt ar karstu ūdeni, kas var sabojāt dzīvās baktērijas.",
-    },
-    {
-      q: "Kādas sastāvdaļas tiek izmantotas enzīmu dzērienu gatavošanā?",
-      a: "Mēs iestājamies par 100% naturālu produktu un cilvēka veselību visā tās veselumā. Enzīmu dzērienu gatavošanā izmantojam tikai svaigus augļus un citas dabas veltes, kā arī medu, kas fermentācijas gaitā pilnībā pārvēršas organiskajās skābēs un fermentos.",
-    },
-    {
-      q: "Cik ilgā laikā tiek veikta enzīmu dzērienu piegāde?",
-      a: "Piegāde ir atkarīga no tā, vai konkrētais enzīma dzēriens ir pieejams vai nav. Izgatavojam pēc pasūtījuma, kas nozīmē, ka pasūtījums ir gatavs piegādei aptuveni nedēļas laikā pēc pasūtījuma pieteikuma saņemšanas un priekšapmaksas rēķina apmaksas.",
-    },
-    {
-      q: "Kāda ir norēķinu kārtība par enzīmu dzērieniem?",
-      a: "Norēķini par enzīmu dzērieniem tiek veikti priekšapmaksas veidā, pamatojoties uz mūsu izsniegto rēķinu.",
-    },
-  ];
+  const faqs = t.faqsSection.items;
 
   return (
     <>
       <SEOHead
-        title="Dabas Fermentēti Enzīmu Dzērieni"
-        description="Svaigi fermentēti bioloģiskie enzīmu dzērieni bez pievienota cukura. 100% dabīgi augļi un dzīvās baktērijas."
+        title={t.hero.title}
+        description={t.hero.subtitle}
       />
 
       {/* Hero Section */}
@@ -147,8 +118,8 @@ export const Home: React.FC = () => {
               {/* Badges */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] text-xs font-bold shadow-2xs">
-                  <span className="w-2 h-2 rounded-full bg-[#D97706] animate-pulse" />
-                  <span>Šī mājaslapa ir izstrādes stadijā</span>
+                  <span className="w-2 h-2 rounded-full bg-[#D97706]" />
+                  <span>{t.hero.underDevelopment}</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F4E9] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
                   <Leaf className="w-4 h-4 text-[#1B8044]" />
@@ -158,7 +129,7 @@ export const Home: React.FC = () => {
 
               {/* Title */}
               <h1 className="font-serif-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#122E1F] leading-[1.15]">
-                Dabas spēks <span className="text-[#1B8044] italic">veselīgai dzīvei</span> katrā enzīmu dzēriena malkā
+                {t.hero.title}
               </h1>
 
               {/* Subtitle */}
@@ -191,17 +162,17 @@ export const Home: React.FC = () => {
               <div className="relative bg-[#FFFFFF] px-8 py-9 sm:px-10 rounded-3xl border border-[#CDE8D5] card-soft-shadow w-full max-w-[645px] text-center space-y-4">
                 <div className="flex items-center justify-center gap-2">
                   <span className="bg-[#E5F4E9] text-[#1B8044] text-xs font-bold px-3 py-1 rounded-full border border-[#CDE8D5]">
-                    Dabas Dzēriens • 750ml / 500ml Pudele
+                    {t.hero.bottleBadge}
                   </span>
                   <span className="bg-[#1B8044] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
-                    Handmade
+                    {t.hero.handmadeBadge}
                   </span>
                 </div>
 
                 <div className="py-2.5 flex justify-center bg-[#F2FAF4] rounded-2xl border border-[#CDE8D5]/80 p-4">
                   <img
                     src={pasutietEnzimuDzerienusImg}
-                    alt="Pasūtiet enzīmu dzērienus"
+                    alt={t.hero.title}
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
@@ -214,16 +185,16 @@ export const Home: React.FC = () => {
 
                 <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-left space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-sm text-[#122E1F]">100% dabīgs produkts</span>
+                    <span className="font-bold text-sm text-[#122E1F]">{t.hero.naturalProductTitle}</span>
                   </div>
-                  <p className="text-xs text-[#2E523A]">Svaigi augļi, dārzeņi un citas dabīgās izejvielas</p>
+                  <p className="text-xs text-[#2E523A]">{t.hero.naturalProductDesc}</p>
                 </div>
 
                 <Link
                   to={getLocalizedPath("products")}
                   className="w-full py-3 rounded-xl bg-[#1B8044] text-white font-bold text-xs hover:bg-[#146334] transition-colors flex items-center justify-center gap-1.5"
                 >
-                  <span>Izvēlēties savu dzērienu</span>
+                  <span>{t.hero.chooseDrinkBtn}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -232,8 +203,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* 3 Value Proposition Cards Section */}
       <section className="py-6 md:py-8 bg-[#FAF9F5]">
@@ -288,26 +257,26 @@ export const Home: React.FC = () => {
               
               <div className="lg:col-span-7 space-y-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
-                  Kas Ir Enzīmu Dzērieni?
+                  {t.homeAboutTeaser.badge}
                 </span>
                 <h2 className="font-serif-title text-3xl font-bold text-[#122E1F]">
-                  Dabiski fermentēti dzērieni labai pašsajūtai
+                  {t.homeAboutTeaser.title}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-                  Enzīmu dzērieni ir dabiski fermentēti dzērieni, kas top rūpīgā gatavošanas procesā. Tie netiek pasterizēti, saglabājot visas vērtīgās baktērijas un fermentus.
+                  {t.homeAboutTeaser.desc}
                 </p>
                 <div className="space-y-2 pt-2">
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-[#1B8044]" />
-                    <span>Bez pievienota cukura – izmantota tikai augļu dabīgā fruktoze un medus.</span>
+                    <span>{t.homeAboutTeaser.check1}</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-[#1B8044]" />
-                    <span>100% Svaigi augļi, dārzeņi un meža ogas.</span>
+                    <span>{t.homeAboutTeaser.check2}</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs text-[#122E1F] font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-[#1B8044]" />
-                    <span>7–14 dienu lēna fermentācija stikla traukos.</span>
+                    <span>{t.homeAboutTeaser.check3}</span>
                   </div>
                 </div>
 
@@ -316,7 +285,7 @@ export const Home: React.FC = () => {
                     to={getLocalizedPath("about")}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1B8044] text-white text-xs font-bold hover:bg-[#146334] transition-colors"
                   >
-                    <span>Lasīt pilnu aprakstu par enzīmu dzērieniem</span>
+                    <span>{t.homeAboutTeaser.fullArticleBtn}</span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -324,17 +293,17 @@ export const Home: React.FC = () => {
 
               <div className="lg:col-span-5 bg-[#E5F4E9] p-6 rounded-2xl border border-[#CDE8D5] space-y-4">
                 <h3 className="font-serif-title text-xl font-bold text-[#122E1F]">
-                  Ko sniedz enzīmu dzērieni?
+                  {t.homeAboutTeaser.benefitsTitle}
                 </h3>
                 <div className="space-y-3 text-xs text-[#2E523A]">
                   <p>
-                    <strong>Gremošanas atbalsts:</strong> Dabīgie fermenti palīdz sašķelt uzturvielas un mazina smaguma sajūtu.
+                    <strong>{t.homeAboutTeaser.benefit1Title}:</strong> {t.homeAboutTeaser.benefit1Desc}
                   </p>
                   <p>
-                    <strong>Imunitātes stiprināšana:</strong> Zarnu mikroflorā atrodas 80% imūnšūnu, ko spēcina dzīvās baktērijas.
+                    <strong>{t.homeAboutTeaser.benefit2Title}:</strong> {t.homeAboutTeaser.benefit2Desc}
                   </p>
                   <p>
-                    <strong>Dabiska enerģija:</strong> Bez kofeīna un cukura straujām svārstībām.
+                    <strong>{t.homeAboutTeaser.benefit3Title}:</strong> {t.homeAboutTeaser.benefit3Desc}
                   </p>
                 </div>
               </div>
@@ -354,10 +323,10 @@ export const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044]">
-                E-Veikala Piedāvājums
+                {t.popularSection.tag}
               </span>
               <h2 className="font-serif-title text-3xl sm:text-4xl font-bold text-[#122E1F] mt-1">
-                Populārākie Enzīmu Dzērieni
+                {t.popularSection.title}
               </h2>
             </div>
 
@@ -365,7 +334,7 @@ export const Home: React.FC = () => {
               to={getLocalizedPath("products")}
               className="px-5 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#CDE8D5] text-[#122E1F] text-xs font-bold hover:bg-[#1B8044] hover:text-white transition-colors flex items-center gap-2"
             >
-              <span>Apskatīt visus produktus</span>
+              <span>{t.popularSection.viewAllBtn}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -388,10 +357,10 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-3 sm:space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-[#1B8044] block">
-              Citi mūsu pakalpojumi
+              {t.servicesPreview.tag}
             </span>
             <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-[#122E1F] pt-1">
-              Piedāvājam meistarklases, individuālas dāvanas un mājražošanas komplektu
+              {t.servicesPreview.title}
             </h2>
           </div>
 
@@ -413,7 +382,7 @@ export const Home: React.FC = () => {
                 }
               }}
               className="hidden md:flex absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
-              aria-label="Iepriekšējais"
+              aria-label="Previous"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -423,7 +392,7 @@ export const Home: React.FC = () => {
                 setCurrentIndex((prev) => prev + 1);
               }}
               className="hidden md:flex absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white border border-[#CDE8D5] items-center justify-center text-[#1B8044] shadow-md transition-all opacity-80 hover:opacity-100"
-              aria-label="Nākamais"
+              aria-label="Next"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -489,7 +458,7 @@ export const Home: React.FC = () => {
                     setIsTransitioning(true);
                     setCurrentIndex(idx);
                   }}
-                  aria-label={`Slaids ${idx + 1}`}
+                  aria-label={`Slide ${idx + 1}`}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     currentIndex % servicesData.length === idx ? 'w-6 bg-[#1B8044]' : 'w-2 bg-[#CDE8D5]'
                   }`}
@@ -505,7 +474,7 @@ export const Home: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
             <h2 className="font-serif-title text-2xl sm:text-4xl font-bold text-[#122E1F]">
-              Biežāk uzdotie jautājumi par enzīmu dzērieniem
+              {t.faqsSection.title}
             </h2>
           </div>
 
@@ -544,23 +513,23 @@ export const Home: React.FC = () => {
       <section className="py-6 md:py-10 bg-[#1B8044] text-white">
         <div className="max-w-5xl mx-auto px-4 text-center space-y-4 sm:space-y-6">
           <h2 className="font-serif-title text-2xl sm:text-4xl font-bold">
-            Sajūti dabas dāvāto spēku un vieglumu jau šodien
+            {t.bottomCta.title}
           </h2>
           <p className="text-xs sm:text-sm text-[#E5F4E9] max-w-xl mx-auto leading-relaxed">
-            Izvēlies kādu no mūsu gatavotajiem enzīmu dzērieniem vai izmanto kādu citu no mūsu piedāvātajiem pakalpojumiem
+            {t.bottomCta.subtitle}
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
               to={getLocalizedPath("products")}
               className="px-8 py-3.5 rounded-xl bg-[#FAF9F5] text-[#122E1F] font-bold text-xs hover:bg-[#E5F4E9] hover:text-[#1B8044] transition-colors"
             >
-              Pasūtīt e-veikalā
+              {t.bottomCta.orderBtn}
             </Link>
             <Link
               to={getLocalizedPath("contact")}
               className="px-8 py-3.5 rounded-xl border border-white/40 text-white font-bold text-xs hover:bg-white/10 transition-colors"
             >
-              Sazināties ar mums
+              {t.bottomCta.contactBtn}
             </Link>
           </div>
         </div>

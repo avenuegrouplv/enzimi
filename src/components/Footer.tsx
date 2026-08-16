@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
-import { PRODUCTS } from '../data/products';
 import { Leaf, Phone, Mail, MapPin, Heart, ShieldCheck, Truck, Sparkles } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { t, getLocalizedPath } = useLanguage();
+  const { t, getLocalizedPath, products } = useLanguage();
 
   return (
     <footer className="bg-[#E5F4E9] border-t border-[#CDE8D5] pt-16 pb-8 text-[#122E1F] relative overflow-hidden">
@@ -22,8 +21,8 @@ export const Footer: React.FC = () => {
               <Leaf className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#122E1F]">100% dabīgs produkts</h4>
-              <p className="text-xs text-[#2E523A]">Svaigi augļi, dārzeņi un citas dabīgās izejvielas</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">{t.footer.feature1Title}</h4>
+              <p className="text-xs text-[#2E523A]">{t.footer.feature1Desc}</p>
             </div>
           </div>
 
@@ -32,8 +31,8 @@ export const Footer: React.FC = () => {
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#122E1F]">Saņemšanas iespējas</h4>
-              <p className="text-xs text-[#2E523A]">Piegāde vai saņemšana klātienē Rīgā</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">{t.footer.feature2Title}</h4>
+              <p className="text-xs text-[#2E523A]">{t.footer.feature2Desc}</p>
             </div>
           </div>
 
@@ -42,8 +41,8 @@ export const Footer: React.FC = () => {
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#122E1F]">Dabīgā Fermentācija</h4>
-              <p className="text-xs text-[#2E523A]">Saglabāti visi enzīmi un probiotikas</p>
+              <h4 className="font-bold text-sm text-[#122E1F]">{t.footer.feature3Title}</h4>
+              <p className="text-xs text-[#2E523A]">{t.footer.feature3Desc}</p>
             </div>
           </div>
         </div>
@@ -64,10 +63,10 @@ export const Footer: React.FC = () => {
               </div>
             </Link>
             <p className="text-[13px] font-bold text-[#1B8044] tracking-wide">
-              Dabas spēks veselīgai dzīvei
+              {t.footer.brandTagline}
             </p>
             <p className="text-xs text-[#2E523A] leading-relaxed">
-              Enzīmi - Dabiski fermentēti dzērieni veselībai, spēkam un labsajūtai. 100% dabīgs produkts
+              {t.footer.description}
             </p>
           </div>
 
@@ -108,10 +107,10 @@ export const Footer: React.FC = () => {
           {/* Col 3: Popular Products */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wider text-[#122E1F] mb-4">
-              Populārākie Dzērieni
+              {t.footer.popularDrinks}
             </h3>
             <ul className="space-y-2.5 text-xs text-[#2E523A]">
-              {PRODUCTS.slice(0, 5).map((product) => (
+              {products.slice(0, 5).map((product) => (
                 <li key={product.id}>
                   <Link to={getLocalizedPath("products")} className="hover:text-[#1B8044] transition-colors">
                     {product.name}

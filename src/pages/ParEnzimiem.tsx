@@ -1,18 +1,19 @@
 import React from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SEOHead } from '../components/SEOHead';
-import { Leaf, ShieldCheck, Sparkles, Heart, Check, X as XIcon, HelpCircle, ArrowRight } from 'lucide-react';
+import { Leaf, ShieldCheck, Sparkles, Heart, Check, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { UsageGuideSection } from '../components/UsageGuideSection';
 
 export const ParEnzimiem: React.FC = () => {
   const { t, getLocalizedPath } = useLanguage();
+  const about = t.aboutSection;
 
   return (
     <>
       <SEOHead
-        title={t.aboutSection.title}
-        description="Profesionāla informācija par enzīmu dzērieniem, probiotiskajām baktērijām, dabīgo fermentāciju un dabisko sastāvu bez pievienota cukura."
+        title={about.title}
+        description={about.paragraph1}
       />
 
       {/* Header Banner */}
@@ -20,15 +21,15 @@ export const ParEnzimiem: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Leaf className="w-4 h-4 text-[#1B8044]" />
-            <span>Dabīgs un fermentēts produkts</span>
+            <span>{about.badge}</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            Viss par un ap Enzīmu dzērieniem
+            {about.title}
           </h1>
 
           <p className="text-sm sm:text-base font-bold text-[#1B8044] uppercase tracking-wider">
-            DABAS SPĒKS VESELĪGAI DZĪVEI
+            {about.subtitle}
           </p>
         </div>
       </section>
@@ -44,11 +45,11 @@ export const ParEnzimiem: React.FC = () => {
                 01
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                Kas ir enzīmu dzērieni?
+                {t.homeAboutTeaser.badge}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-              {t.aboutSection.paragraph1}
+              {about.paragraph1}
             </p>
           </div>
 
@@ -59,33 +60,19 @@ export const ParEnzimiem: React.FC = () => {
                 02
               </div>
               <h2 className="font-serif-title text-xl sm:text-2xl font-bold tracking-tight text-[#122E1F]">
-                Dzērienu Galvenās Priekšrocības
+                {about.benefitsSectionTitle}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-              Katra pudele tiek gatavota ar rokām (Handmade), izmantojot dabīgās izejvielas un lēno fermentāciju. Šeit ir galvenie ieguvumi jūsu veselībai un pašsajūtai:
+              {about.benefitsIntro}
             </p>
             <div className="grid grid-cols-1 gap-3 pt-2">
-              <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
-                <span>ATBALSTA GREMOŠANAS SISTĒMU UN VIELMAIŅU</span>
-              </div>
-              <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
-                <span>STIPRINA IMUNITĀTI UN UZLABO PAŠSAJŪTU</span>
-              </div>
-              <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
-                <span>DABISKS ATBALSTS AKNĀM, NIERĒM UN CITĀM ĶERMEŅA FUNKCIJĀM</span>
-              </div>
-              <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
-                <span>NODROŠINA ENERĢIJAS ATJAUNOŠANOS UN DZĪVOTSPĒKU</span>
-              </div>
-              <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
-                <span>BEZ CUKURA – SALDINĀTS AR MEDU, DABĪGS UN VESELĪGS RISINĀJUMS</span>
-              </div>
+              {about.benefitItems.map((benefit, idx) => (
+                <div key={idx} className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] text-xs sm:text-sm font-bold text-[#122E1F] flex items-center gap-3">
+                  <Check className="w-5 h-5 text-[#1B8044] shrink-0" />
+                  <span>{benefit}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -96,21 +83,21 @@ export const ParEnzimiem: React.FC = () => {
                 03
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                Kādas ir to labās un vērtīgās īpašības?
+                {about.qualitiesTitle}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-              {t.aboutSection.paragraph2}
+              {about.paragraph2}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="bg-[#FAF9F5] p-3.5 rounded-2xl border border-[#CDE8D5] text-xs text-[#122E1F] flex items-center gap-2.5">
                 <ShieldCheck className="w-4 h-4 text-[#1B8044] shrink-0" />
-                <span>Stiprina organisma dabiskās aizsargspējas</span>
+                <span>{about.quality1}</span>
               </div>
               <div className="bg-[#FAF9F5] p-3.5 rounded-2xl border border-[#CDE8D5] text-xs text-[#122E1F] flex items-center gap-2.5">
                 <Sparkles className="w-4 h-4 text-[#1B8044] shrink-0" />
-                <span>Uzlabo barības vielu uzsūkšanos šūnās</span>
+                <span>{about.quality2}</span>
               </div>
             </div>
           </div>
@@ -122,17 +109,17 @@ export const ParEnzimiem: React.FC = () => {
                 04
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                Ko dara dzērienā esošās baktērijas?
+                {about.bacteriaRoleTitle}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-              {t.aboutSection.paragraph3}
+              {about.paragraph3}
             </p>
 
             <div className="bg-[#E5F4E9]/70 p-4 rounded-2xl border border-[#CDE8D5] text-xs text-[#122E1F] flex items-start gap-3">
               <Heart className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
               <div>
-                <strong>Zinātnisks fakts:</strong> Aptuveni 80% no cilvēka imūnsistēmas un 90% serotonīna (laimes hormona) sintēzes notiek tieši zarnu traktā. Tāpēc dzīvās baktērijas ir tiešs ceļš uz veselību un labu garastāvokli.
+                <strong>{about.scientificFactLabel}</strong> {about.scientificFactText}
               </div>
             </div>
           </div>
@@ -144,27 +131,27 @@ export const ParEnzimiem: React.FC = () => {
                 05
               </div>
               <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
-                No kā tiek gatavoti mūsu dzērieni?
+                {about.ingredientsTitle}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#2E523A] leading-relaxed">
-              {t.aboutSection.paragraph4}
+              {about.paragraph4}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
               <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-1">
-                <span className="font-bold text-xs text-[#122E1F] block">{t.aboutSection.noSugarBadge}</span>
-                <p className="text-[11px] text-[#2E523A]">{t.aboutSection.noSugarDesc}</p>
+                <span className="font-bold text-xs text-[#122E1F] block">{about.noSugarBadge}</span>
+                <p className="text-[11px] text-[#2E523A]">{about.noSugarDesc}</p>
               </div>
 
               <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-1">
-                <span className="font-bold text-xs text-[#122E1F] block">{t.aboutSection.probioticsBadge}</span>
-                <p className="text-[11px] text-[#2E523A]">{t.aboutSection.probioticsDesc}</p>
+                <span className="font-bold text-xs text-[#122E1F] block">{about.probioticsBadge}</span>
+                <p className="text-[11px] text-[#2E523A]">{about.probioticsDesc}</p>
               </div>
 
               <div className="bg-[#FAF9F5] p-4 rounded-2xl border border-[#CDE8D5] space-y-1">
-                <span className="font-bold text-xs text-[#122E1F] block">{t.aboutSection.naturalFruitBadge}</span>
-                <p className="text-[11px] text-[#2E523A]">{t.aboutSection.naturalFruitDesc}</p>
+                <span className="font-bold text-xs text-[#122E1F] block">{about.naturalFruitBadge}</span>
+                <p className="text-[11px] text-[#2E523A]">{about.naturalFruitDesc}</p>
               </div>
             </div>
           </div>
@@ -180,10 +167,10 @@ export const ParEnzimiem: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center space-y-2 mb-10">
             <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-[#122E1F]">
-              Kāpēc izvēlēties Enzīmu Dzērienus?
+              {about.comparisonTitle}
             </h2>
             <p className="text-xs text-[#2E523A]">
-              Salīdzinājums ar citiem ikdienā sastopamajiem dzērieniem
+              {about.comparisonSubtitle}
             </p>
           </div>
 
@@ -192,34 +179,21 @@ export const ParEnzimiem: React.FC = () => {
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-[#E5F4E9] text-[#122E1F] font-bold border-b border-[#CDE8D5]">
-                    <th className="p-4">Īpašība</th>
-                    <th className="p-4 text-center">Rūpnieciskās Sulas / Dzērieni</th>
+                    <th className="p-4">{about.tableHeaders.feature}</th>
+                    <th className="p-4 text-center">{about.tableHeaders.commercial}</th>
                     <th className="p-4 text-center bg-[#1B8044]/10 text-[#1B8044]">
-                      Enzīmu Dzērieni
+                      {about.tableHeaders.enzymes}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#CDE8D5] text-[#2E523A]">
-                  <tr>
-                    <td className="p-4 font-bold text-[#122E1F]">Pievienots baltais cukurs</td>
-                    <td className="p-4 text-center text-red-700">Līdz 30g/pudelē</td>
-                    <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">0g (Bez cukura)</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-bold text-[#122E1F]">Termiskā apstrāde (pasterizācija)</td>
-                    <td className="p-4 text-center">Jā (nomaigo fermentus)</td>
-                    <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">Nē (100% Neapstrādāts)</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-bold text-[#122E1F]">Dzīvās baktērijas</td>
-                    <td className="p-4 text-center text-red-700">Nav</td>
-                    <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">Miljoniem probiotiku</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-bold text-[#122E1F]">Svaigi augļi un meža ogas</td>
-                    <td className="p-4 text-center">Bieži koncenterāti</td>
-                    <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">100% Svaigi augļi</td>
-                  </tr>
+                  {about.tableRows.map((row, idx) => (
+                    <tr key={idx}>
+                      <td className="p-4 font-bold text-[#122E1F]">{row.feature}</td>
+                      <td className="p-4 text-center text-red-700">{row.commercial}</td>
+                      <td className="p-4 text-center font-bold text-[#16A34A] bg-[#1B8044]/5">{row.enzymes}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -230,7 +204,7 @@ export const ParEnzimiem: React.FC = () => {
               to={getLocalizedPath("products")}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#1B8044] text-white font-bold text-xs hover:bg-[#146334] transition-all shadow-xs"
             >
-              <span>Izvēlēties savu dzērienu e-veikalā</span>
+              <span>{about.chooseDrinkCta}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

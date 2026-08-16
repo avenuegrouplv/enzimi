@@ -61,7 +61,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenModal }
         {/* Volume Selector */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-semibold text-[#2E523A]">Cena:</span>
+            <span className="text-xs font-semibold text-[#2E523A]">{t.productsSection.priceLabel}</span>
             <span className="text-lg font-bold text-[#122E1F]">
               €{unitPrice.toFixed(2)}
             </span>

@@ -6,11 +6,13 @@ import { lvTranslations } from "./translations/lv";
 import { enTranslations } from "./translations/en";
 import { ruTranslations } from "./translations/ru";
 import { CartItem, Product, VolumeOption, VOLUME_PRICES } from "../types";
+import { getLocalizedProducts } from "../data/products";
 
 interface LanguageContextType {
   lang: Language;
   pageKey: PageKey;
   t: Translations;
+  products: Product[];
   switchLanguage: (targetLang: Language) => void;
   getLocalizedPath: (key: PageKey) => string;
   cart: CartItem[];
@@ -163,6 +165,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return translationsMap[lang] || lvTranslations;
   }, [lang]);
 
+  const products = useMemo(() => {
+    return getLocalizedProducts(lang);
+  }, [lang]);
+
   const switchLanguage = (targetLang: Language) => {
     if (targetLang === lang) return;
     const targetRoute = ROUTE_MAP[targetLang][pageKey] || ROUTE_MAP[targetLang].home;
@@ -183,6 +189,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         lang,
         pageKey,
         t,
+        products,
         switchLanguage,
         getLocalizedPath,
         cart,

@@ -58,7 +58,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             {/* Ingredients */}
             <div>
               <h4 className="text-xs font-bold text-[#122E1F] uppercase tracking-wider mb-1.5">
-                Sastāvs:
+                {t.productsSection.ingredientsLabel}
               </h4>
               <ul className="grid grid-cols-1 gap-1 text-xs text-[#2E523A]">
                 {product.ingredients.map((ing, i) => (
@@ -73,7 +73,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             {/* Volume Selection Box */}
             <div className="p-3.5 bg-[#FFFFFF] rounded-2xl border border-[#CDE8D5]">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#122E1F] uppercase tracking-wider">Pudeles tilpums:</span>
+                <span className="text-xs font-bold text-[#122E1F] uppercase tracking-wider">{t.productsSection.bottleVolumeLabel}</span>
                 <div className="flex gap-2">
                   {(['750ml', '500ml'] as VolumeOption[]).map((vol) => (
                     <button
@@ -104,7 +104,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 className="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-[#1B8044] text-white font-bold text-sm hover:bg-[#146334] transition-all shadow-xs btn-shimmer"
               >
                 <ShoppingBag className="w-4 h-4" />
-                <span>Pievienot grozam</span>
+                <span>{t.productsSection.addToCart}</span>
               </button>
             </div>
 

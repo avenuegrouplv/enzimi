@@ -55,8 +55,7 @@ export const Header: React.FC = () => {
                 Enzīmi
               </span>
               <span className="text-[10px] sm:text-[11px] tracking-wider text-[#1B8044] mt-0.5 font-sans font-bold leading-tight">
-                <span className="block sm:inline">Dabas spēks</span>{" "}
-                <span className="block sm:inline">veselīgai dzīvei</span>
+                {t.nav.tagline}
               </span>
             </div>
           </Link>

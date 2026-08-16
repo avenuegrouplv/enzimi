@@ -14,6 +14,7 @@ export const CartDrawer: React.FC = () => {
     updateCartItemVolume,
     cartTotal,
     clearCart,
+    products,
     t,
   } = useLanguage();
 
@@ -33,6 +34,11 @@ export const CartDrawer: React.FC = () => {
   const grandTotal = Math.round((cartTotal + deliveryCost) * 100) / 100;
   const displayedTotal = isCheckoutStep ? grandTotal : cartTotal;
 
+  const getProductName = (productId: string, defaultName: string) => {
+    const found = products.find((p) => p.id === productId);
+    return found ? found.name : defaultName;
+  };
+
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!customerName || !email || !phone) return;
@@ -49,7 +55,7 @@ export const CartDrawer: React.FC = () => {
           const vol = item.selectedVolume || '750ml';
           const price = item.unitPrice || VOLUME_PRICES[vol];
           return {
-            name: item.product.name,
+            name: getProductName(item.product.id, item.product.name),
             volume: vol,
             quantity: item.quantity,
             price,
@@ -118,25 +124,25 @@ export const CartDrawer: React.FC = () => {
                   {t.cartDrawer.orderSuccessDesc}
                 </p>
                 <div className="bg-[#E5F4E9] p-4 rounded-2xl border border-[#CDE8D5] text-left text-xs space-y-2 text-[#122E1F]">
-                  <p><strong>Pircējs:</strong> {customerName}</p>
-                  <p><strong>E-pasts:</strong> {email}</p>
-                  <p><strong>Piegāde:</strong> {deliveryMethod === 'delivery' ? 'Piegāde' : 'Saņemšana klātienē Rīgā'} ({address || 'Pieteikts'})</p>
+                  <p><strong>{t.cartDrawer.buyerLabel}:</strong> {customerName}</p>
+                  <p><strong>{t.cartDrawer.emailLabel}:</strong> {email}</p>
+                  <p><strong>{t.cartDrawer.deliveryLabel}:</strong> {deliveryMethod === 'delivery' ? t.cartDrawer.deliveryOptionName : t.cartDrawer.pickupOptionName} ({address || '—'})</p>
                   <div className="pt-2 border-t border-[#CDE8D5]">
-                    <strong className="block mb-1">Pasūtītās preces:</strong>
+                    <strong className="block mb-1">{t.cartDrawer.orderedItemsLabel}:</strong>
                     <ul className="space-y-1">
                       {cart.map((item, idx) => {
                         const vol = item.selectedVolume || '750ml';
                         const price = item.unitPrice || VOLUME_PRICES[vol];
                         return (
                           <li key={idx} className="flex justify-between text-[11px] text-[#2E523A]">
-                            <span>{item.quantity}x {item.product.name} ({vol})</span>
+                            <span>{item.quantity}x {getProductName(item.product.id, item.product.name)} ({vol})</span>
                             <span className="font-bold text-[#122E1F]">€{(price * item.quantity).toFixed(2)}</span>
                           </li>
                         );
                       })}
                     </ul>
                   </div>
-                  <p className="pt-2 border-t border-[#CDE8D5]"><strong>Kopā apmaksai:</strong> €{grandTotal.toFixed(2)}</p>
+                  <p className="pt-2 border-t border-[#CDE8D5]"><strong>{t.cartDrawer.totalToPayLabel}:</strong> €{grandTotal.toFixed(2)}</p>
                 </div>
                 <button
                   onClick={handleClose}
@@ -157,6 +163,7 @@ export const CartDrawer: React.FC = () => {
                   const vol: VolumeOption = item.selectedVolume || '750ml';
                   const unitPrice = item.unitPrice || VOLUME_PRICES[vol];
                   const itemTotal = unitPrice * item.quantity;
+                  const localizedName = getProductName(item.product.id, item.product.name);
 
                   return (
                     <div
@@ -167,7 +174,7 @@ export const CartDrawer: React.FC = () => {
                         <div className="flex items-center gap-3">
                           <img
                             src={item.product.image || enzimuDzerieniImg}
-                            alt={item.product.name}
+                            alt={localizedName}
                             onError={(e) => {
                               (e.currentTarget as HTMLImageElement).src = '/Enzimu-dzerieni.webp';
                             }}
@@ -175,9 +182,9 @@ export const CartDrawer: React.FC = () => {
                           />
                           <div>
                             <h4 className="font-bold text-xs text-[#122E1F] leading-snug line-clamp-1">
-                              {item.product.name}
+                              {localizedName}
                             </h4>
-                            <span className="text-[10px] text-[#2E523A]">€{unitPrice.toFixed(2)} / gab.</span>
+                            <span className="text-[10px] text-[#2E523A]">€{unitPrice.toFixed(2)}</span>
                           </div>
                         </div>
 
@@ -295,8 +302,8 @@ export const CartDrawer: React.FC = () => {
                   </label>
                   <div className="space-y-2">
                     {[
-                      { id: 'delivery', label: 'Piegāde', price: 3.50 },
-                      { id: 'pickup', label: 'Saņemšana klātienē Rīgā', price: 0 },
+                      { id: 'delivery', label: t.cartDrawer.deliveryOptionName, price: 3.50 },
+                      { id: 'pickup', label: t.cartDrawer.pickupOptionName, price: 0 },
                     ].map((m) => (
                       <label
                         key={m.id}
@@ -317,7 +324,7 @@ export const CartDrawer: React.FC = () => {
                           <span>{m.label}</span>
                         </div>
                         <span className="text-[11px] font-bold">
-                          {m.price > 0 ? `€${m.price.toFixed(2)}` : 'Bezmaksas'}
+                          {m.price > 0 ? `€${m.price.toFixed(2)}` : t.cartDrawer.free}
                         </span>
                       </label>
                     ))}
@@ -334,19 +341,19 @@ export const CartDrawer: React.FC = () => {
                 {isCheckoutStep && (
                   <>
                     <div className="flex justify-between">
-                      <span>Dzērieni:</span>
+                      <span>{t.cartDrawer.drinksLabel}:</span>
                       <span className="font-bold text-[#122E1F]">€{cartTotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Piegāde:</span>
+                      <span>{t.cartDrawer.deliveryFeeLabel}:</span>
                       <span className="font-bold text-[#122E1F]">
-                        {deliveryCost > 0 ? `€${deliveryCost.toFixed(2)}` : 'Bezmaksas'}
+                        {deliveryCost > 0 ? `€${deliveryCost.toFixed(2)}` : t.cartDrawer.free}
                       </span>
                     </div>
                   </>
                 )}
                 <div className="flex justify-between text-base font-bold text-[#122E1F] pt-1 border-t border-[#CDE8D5]">
-                  <span>Kopā:</span>
+                  <span>{t.cartDrawer.total}:</span>
                   <span>€{displayedTotal.toFixed(2)}</span>
                 </div>
               </div>
@@ -366,7 +373,7 @@ export const CartDrawer: React.FC = () => {
                     onClick={() => setIsCheckoutStep(false)}
                     className="py-3 px-4 rounded-xl bg-[#E5F4E9] text-[#122E1F] font-bold text-xs hover:bg-[#CDE8D5]"
                   >
-                    Atpakaļ
+                    {t.cartDrawer.backBtn}
                   </button>
                   <button
                     type="submit"
@@ -374,7 +381,7 @@ export const CartDrawer: React.FC = () => {
                     disabled={isSubmitting}
                     className="flex-1 py-3 px-4 rounded-xl bg-[#1B8044] text-white font-bold text-sm hover:bg-[#146334] disabled:opacity-50 transition-all shadow-xs"
                   >
-                    {isSubmitting ? 'Apstrādā...' : t.cartDrawer.confirmOrder}
+                    {isSubmitting ? t.cartDrawer.processingBtn : t.cartDrawer.confirmOrder}
                   </button>
                 </div>
               )}

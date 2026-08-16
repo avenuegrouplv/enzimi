@@ -26,7 +26,7 @@ export const Pakalpojumi: React.FC = () => {
       desc: t.servicesSection.service1Desc,
       icon: Users,
       details: t.servicesSection.service1Details,
-      priceNote: 'No €35.00 / personai',
+      priceNote: t.servicesSection.service1Price,
     },
     {
       id: 'korporativie',
@@ -34,7 +34,7 @@ export const Pakalpojumi: React.FC = () => {
       desc: t.servicesSection.service2Desc,
       icon: Sparkles,
       details: t.servicesSection.service2Details,
-      priceNote: 'Individuāls aprēķins',
+      priceNote: t.servicesSection.service2Price,
     },
     {
       id: 'komplekti',
@@ -42,15 +42,15 @@ export const Pakalpojumi: React.FC = () => {
       desc: t.servicesSection.service3Desc,
       icon: Package,
       details: t.servicesSection.service3Details,
-      priceNote: '€ 850.00',
+      priceNote: t.servicesSection.service3Price,
     },
   ];
 
   return (
     <>
       <SEOHead
-        title="Pakalpojumi"
-        description="Mājas ražošanas meistarklases, fermentācijas konsultācijas un korporatīvie pasūtījumi no Enzīmi."
+        title={`${t.servicesSection.title} | Enzīmi`}
+        description={t.servicesSection.subtitle}
       />
 
       {/* Header Banner */}
@@ -58,12 +58,16 @@ export const Pakalpojumi: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#1B8044]" />
-            <span>Fermentācijas māksla</span>
+            <span>{t.servicesSection.badge}</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
             {t.servicesSection.title}
           </h1>
+
+          <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
+            {t.servicesSection.subtitle}
+          </p>
         </div>
       </section>
 
@@ -120,7 +124,7 @@ export const Pakalpojumi: React.FC = () => {
 
                     <div className="pt-2 border-t border-[#CDE8D5] space-y-2">
                       <span className="text-[11px] font-bold text-[#122E1F] uppercase tracking-wider block">
-                        Kas ietverts:
+                        {t.servicesSection.includesTitle}
                       </span>
                       <ul className="space-y-2 text-xs text-[#2E523A]">
                         {s.details.map((item, idx) => (
@@ -165,16 +169,16 @@ export const Pakalpojumi: React.FC = () => {
                       ✓
                     </div>
                     <h3 className="font-serif-title text-xl font-bold text-[#122E1F]">
-                      Pieteikums saņemts!
+                      {t.contactSection.successMessageTitle}
                     </h3>
                     <p className="text-xs text-[#2E523A]">
-                      Mēs ar jums sazināsimies 24 stundu laikā, lai saskaņotu detaļas par pakalpojumu <strong>{selectedService}</strong>.
+                      {t.contactSection.successMessageDesc}
                     </p>
                     <button
                       onClick={() => setSelectedService(null)}
                       className="px-6 py-2.5 rounded-xl bg-[#1B8044] text-white font-bold text-xs"
                     >
-                      Aizvērt
+                      OK
                     </button>
                   </div>
                 ) : (
@@ -187,7 +191,7 @@ export const Pakalpojumi: React.FC = () => {
                   >
                     <div>
                       <span className="text-xs font-bold text-[#1B8044] uppercase tracking-wider block">
-                        Pieteikums pakalpojumam
+                        {t.servicesSection.inquireBtn}
                       </span>
                       <h3 className="font-serif-title text-xl font-bold text-[#122E1F]">
                         {selectedService}
@@ -195,41 +199,41 @@ export const Pakalpojumi: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#122E1F] mb-1">Jūsu Vārds *</label>
+                      <label className="block text-xs font-bold text-[#122E1F] mb-1">{t.contactSection.nameLabel} *</label>
                       <input
                         type="text"
                         required
-                        placeholder="Jānis Bērziņš"
+                        placeholder={t.contactSection.namePlaceholder}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#CDE8D5] text-xs text-[#122E1F]"
                       />
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-bold text-[#122E1F] mb-1">E-pasts *</label>
+                        <label className="block text-xs font-bold text-[#122E1F] mb-1">{t.contactSection.emailLabel} *</label>
                         <input
                           type="email"
                           required
-                          placeholder="janis@paraugs.lv"
+                          placeholder={t.contactSection.emailPlaceholder}
                           className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#CDE8D5] text-xs text-[#122E1F]"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#122E1F] mb-1">Tālrunis *</label>
+                        <label className="block text-xs font-bold text-[#122E1F] mb-1">{t.contactSection.phoneLabel} *</label>
                         <input
                           type="tel"
                           required
-                          placeholder="+371 20000000"
+                          placeholder={t.contactSection.phonePlaceholder}
                           className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#CDE8D5] text-xs text-[#122E1F]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#122E1F] mb-1">Ziņa / Vēlmes</label>
+                      <label className="block text-xs font-bold text-[#122E1F] mb-1">{t.contactSection.messageLabel}</label>
                       <textarea
                         rows={3}
-                        placeholder="Norādiet vēlamo datumu, personu skaitu vai pasūtījuma apjomu..."
+                        placeholder={t.contactSection.messagePlaceholder}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#CDE8D5] text-xs text-[#122E1F] resize-none"
                       />
                     </div>
@@ -238,7 +242,7 @@ export const Pakalpojumi: React.FC = () => {
                       type="submit"
                       className="w-full py-3 rounded-xl bg-[#1B8044] text-white font-bold text-xs hover:bg-[#146334]"
                     >
-                      Nosūtīt pieteikumu
+                      {t.contactSection.submitBtn}
                     </button>
                   </form>
                 )}

@@ -6,12 +6,13 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 export const Kontakti: React.FC = () => {
   const { t } = useLanguage();
+  const cSec = t.contactSection;
 
   return (
     <>
       <SEOHead
-        title="Kontakti"
-        description="Sazinieties ar Enzīmi komandu. Adrese, tālrunis, e-pasts un saziņas forma."
+        title={`${cSec.title} | Enzīmi`}
+        description={cSec.subtitle}
       />
 
       {/* Header Banner */}
@@ -19,15 +20,15 @@ export const Kontakti: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CDE8D5] text-[#1B8044] text-xs font-bold shadow-2xs">
             <Mail className="w-4 h-4 text-[#1B8044]" />
-            <span>Mēs Esam Tev Sasniedzami</span>
+            <span>{cSec.badge}</span>
           </div>
 
           <h1 className="font-serif-title text-3xl sm:text-5xl font-bold text-[#122E1F]">
-            Sazinies Ar Mums
+            {cSec.title}
           </h1>
 
           <p className="text-xs sm:text-sm text-[#2E523A] max-w-2xl mx-auto leading-relaxed">
-            {t.contactSection.subtitle}
+            {cSec.subtitle}
           </p>
         </div>
       </section>
@@ -43,7 +44,7 @@ export const Kontakti: React.FC = () => {
               <div className="bg-[#FFFFFF] p-8 rounded-3xl border border-[#CDE8D5] card-soft-shadow space-y-6">
                 <div>
                   <span className="text-xs font-bold text-[#1B8044] uppercase tracking-wider block mb-1">
-                    Kontaktinformācija
+                    {cSec.infoBoxTitle}
                   </span>
                   <h2 className="font-serif-title text-2xl font-bold text-[#122E1F]">
                     Enzīmi
@@ -54,32 +55,32 @@ export const Kontakti: React.FC = () => {
                   <div className="flex items-start gap-3.5 p-3 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5]">
                     <MapPin className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#122E1F] block font-bold mb-0.5">Adrese:</strong>
-                      <span>{t.contactSection.addressInfo}</span>
+                      <strong className="text-[#122E1F] block font-bold mb-0.5">{cSec.addressLabel}</strong>
+                      <span>{cSec.addressInfo}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5 p-3 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5]">
                     <Phone className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#122E1F] block font-bold mb-0.5">Tālrunis:</strong>
-                      <span>{t.contactSection.phoneInfo}</span>
+                      <strong className="text-[#122E1F] block font-bold mb-0.5">{cSec.phoneLabel}:</strong>
+                      <span>{cSec.phoneInfo}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5 p-3 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5]">
                     <Mail className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#122E1F] block font-bold mb-0.5">E-pasts:</strong>
-                      <span>{t.contactSection.emailInfo}</span>
+                      <strong className="text-[#122E1F] block font-bold mb-0.5">{cSec.emailLabel}:</strong>
+                      <span>{cSec.emailInfo}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5 p-3 rounded-2xl bg-[#FAF9F5] border border-[#CDE8D5]">
                     <Clock className="w-5 h-5 text-[#1B8044] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#122E1F] block font-bold mb-0.5">Darba laiks:</strong>
-                      <span>{t.contactSection.hoursInfo}</span>
+                      <strong className="text-[#122E1F] block font-bold mb-0.5">{cSec.hoursLabel}</strong>
+                      <span>{cSec.hoursInfo}</span>
                     </div>
                   </div>
                 </div>

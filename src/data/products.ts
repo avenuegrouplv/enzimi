@@ -1,7 +1,8 @@
 import { Product } from '../types';
+import { Language } from '../i18n/types';
 import enzimuDzerieniImg from '../assets/enzimu-dzerieni.webp';
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS_LV: Product[] = [
   {
     id: 'smiltserksku-ingvers',
     name: 'Smiltsērkšķu un ingvera enzīms',
@@ -171,3 +172,359 @@ export const PRODUCTS: Product[] = [
     image: enzimuDzerieniImg
   }
 ];
+
+export const PRODUCTS_EN: Product[] = [
+  {
+    id: 'smiltserksku-ingvers',
+    name: 'Sea Buckthorn & Ginger Enzyme Drink',
+    subName: 'Sea Buckthorn & Ginger',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented botanical enzyme drink with wild sea buckthorn and spicy ginger.',
+    fullDescription: 'Handcrafted enzyme beverage brewed from Nordic sea buckthorn berries and fresh ginger root, rich in active enzymes and natural vitamin C.',
+    ingredients: ['Sea Buckthorn', 'Ginger Root', 'Lemongrass', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Live Fruit Enzymes', 'Rich in Vitamin C', '100% Raw Ingredients'],
+    colorGradient: 'from-[#F4A261] to-[#E76F51]',
+    bottleAccent: '#E76F51',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'dzervenju-laima',
+    name: 'Cranberry & Lime Enzyme Drink',
+    subName: 'Cranberries & Lime',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented enzyme beverage crafted from wild forest cranberries and fresh lime.',
+    fullDescription: 'Crisp and refreshing botanical drink fermented from wild cranberries, juicy lime, and linden blossoms, bursting with organic acids.',
+    ingredients: ['Wild Cranberries', 'Fresh Lime', 'Linden Blossoms', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Rich in Vitamin C', 'Natural Organic Acids', '100% Pure & Raw'],
+    colorGradient: 'from-[#E63946] to-[#9D0208]',
+    bottleAccent: '#9D0208',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'abolu-kanela-biosvaigums',
+    name: 'Apple & Cinnamon Enzyme Drink',
+    subName: 'Apple & Ceylon Cinnamon',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented artisanal apple and fragrant Ceylon cinnamon enzyme drink.',
+    fullDescription: 'Warm, delicately spiced living enzyme drink handcrafted from orchard apples and authentic Ceylon cinnamon with bioactive ferments.',
+    ingredients: ['Orchard Apples', 'Ceylon Cinnamon', 'Cardamom', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Live Fruit Enzymes', 'Natural Spices', 'Zero Preservatives'],
+    colorGradient: 'from-[#D4A373] to-[#A3B18A]',
+    bottleAccent: '#D4A373',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'abolu-vaniljas',
+    name: 'Apple & Vanilla Enzyme Drink',
+    subName: 'Apple & Bourbon Vanilla',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented elixir brewed from crisp apples, fragrant vanilla pods, and mint.',
+    fullDescription: 'Sophisticated living drink made from sweet apples, natural vanilla, cinnamon bark, and invigorating garden peppermint.',
+    ingredients: ['Apples', 'Cinnamon', 'Cinnamon Sticks', 'Pure Vanilla', 'Peppermint', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Live Fruit Enzymes', 'Pure Vanilla & Cinnamon', 'No Preservatives'],
+    colorGradient: 'from-[#E07A5F] to-[#F2CC8F]',
+    bottleAccent: '#E07A5F',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'upenu-piparmetras',
+    name: 'Blackcurrant & Mint Enzyme Drink',
+    subName: 'Blackcurrant & Peppermint',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented enzyme beverage with ripe blackcurrants and refreshing garden mint.',
+    fullDescription: 'Deeply aromatic fermented elixir brewed from hand-picked garden blackcurrants and fresh peppermint leaves.',
+    ingredients: ['Blackcurrants', 'Peppermint Leaves', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Natural Vitamin C', 'Active Bio-Enzymes', '100% Pure & Raw'],
+    colorGradient: 'from-[#7209B7] to-[#3F37C9]',
+    bottleAccent: '#7209B7',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'aroniju-abolu',
+    name: 'Chokeberry & Apple Enzyme Drink',
+    subName: 'Aronia (Chokeberry) & Apple',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented antioxidant-rich chokeberry (aronia) and crisp apple drink.',
+    fullDescription: 'Potent vitality enzyme drink crafted with dark chokeberries and fresh local apples, delivering exceptional bioflavonoids.',
+    ingredients: ['Chokeberries (Aronia)', 'Local Apples', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Rich in Antioxidants', '100% Raw Ingredients'],
+    colorGradient: 'from-[#2A085C] to-[#5C1380]',
+    bottleAccent: '#5C1380',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'kirsu-avenu',
+    name: 'Cherry & Raspberry Enzyme Drink',
+    subName: 'Garden Cherries & Raspberries',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented botanical beverage made from ripe orchard cherries and sweet raspberries.',
+    fullDescription: 'Vibrant and delicious ruby enzyme drink brewed from sun-ripened garden cherries and aromatic summer raspberries.',
+    ingredients: ['Orchard Cherries', 'Raspberries', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Natural Organic Acids', 'Zero Synthetic Additives'],
+    colorGradient: 'from-[#9B2226] to-[#AE2012]',
+    bottleAccent: '#9B2226',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'sarkano-avenu-citronzales',
+    name: 'Raspberry & Lemongrass Enzyme Drink',
+    subName: 'Raspberries & Lemongrass',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented drink with fragrant raspberries, lemongrass, and rose petals.',
+    fullDescription: 'Exotic rejuvenating enzyme drink infused with sweet red raspberries, lemongrass stalks, and delicate rose blossoms.',
+    ingredients: ['Sweet Raspberries', 'Lemongrass', 'Rose Petals', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Fruit Bio-Compounds', 'Living Cultures'],
+    colorGradient: 'from-[#BC4749] to-[#6A040F]',
+    bottleAccent: '#BC4749',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'piladzu-liepziedu',
+    name: 'Rowanberry & Linden Blossom Enzyme Drink',
+    subName: 'Wild Rowanberries & Linden',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented wild rowanberry and soothing linden blossom enzyme tonic.',
+    fullDescription: 'Traditional tonic beverage brewed from autumn wild rowanberries, fragrant linden blossoms, and raspberry leaves.',
+    ingredients: ['Wild Rowanberries', 'Linden Blossoms', 'Raspberry Leaves', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Linden Blossom Power', 'Rich in Vitamin C'],
+    colorGradient: 'from-[#CB997E] to-[#6B705C]',
+    bottleAccent: '#CB997E',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'meza-ogu-priedes',
+    name: 'Wild Berry & Pine Bud Enzyme Drink',
+    subName: 'Wild Forest Berries & Pine Buds',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented Nordic wild berries and springtime pine bud botanical elixir.',
+    fullDescription: 'Pristine Nordic forest elixir handcrafted from wild blackberries, blueberries, and tender young pine shoots.',
+    ingredients: ['Wild Blackberries & Blueberries', 'Pine Buds', 'Peppermint', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Forest Antioxidants', '100% Raw Ingredients'],
+    colorGradient: 'from-[#3A5A40] to-[#344E41]',
+    bottleAccent: '#3A5A40',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'rabarberu-ingvers',
+    name: 'Rhubarb & Ginger Enzyme Drink',
+    subName: 'Spring Rhubarb & Ginger',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented invigorating rhubarb and zesty ginger enzyme beverage.',
+    fullDescription: 'Crisp, refreshing enzyme drink handcrafted from juicy spring rhubarb and fresh spicy ginger root.',
+    ingredients: ['Fresh Spring Rhubarb', 'Ginger Root', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Active Bio-Enzymes', 'Natural Fruit Acids', '100% Pure & Raw'],
+    colorGradient: 'from-[#E76F51] to-[#F4A261]',
+    bottleAccent: '#E76F51',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'cidoniju-piladzu',
+    name: 'Quince & Rowanberry Enzyme Drink',
+    subName: 'Nordic Quince & Rowanberries',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Naturally fermented Nordic quince (Chaenomeles) and rowanberry drink.',
+    fullDescription: 'Golden Nordic enzyme drink crafted from aromatic quince and wild forest rowanberries, packed with bio-active enzymes.',
+    ingredients: ['Nordic Quince', 'Forest Rowanberries', 'Raw Honey', 'Cloves', 'Spring Water'],
+    benefits: ['Rich in Vitamin C', 'Bio-Active Enzymes', 'Zero Preservatives'],
+    colorGradient: 'from-[#E9C46A] to-[#D4A373]',
+    bottleAccent: '#E9C46A',
+    image: enzimuDzerieniImg
+  }
+];
+
+export const PRODUCTS_RU: Product[] = [
+  {
+    id: 'smiltserksku-ingvers',
+    name: 'Облепихово-имбирный энзимный напиток',
+    subName: 'Облепиха и имбирь',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из дикой облепихи и пряного имбиря.',
+    fullDescription: 'Живой энзимный напиток из отборной облепихи и свежего корня имбиря, насыщенный природными ферментами и витамином С.',
+    ingredients: ['Облепиха', 'Корень имбиря', 'Лемонграсс', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Источник витамина C', '100% натуральный состав'],
+    colorGradient: 'from-[#F4A261] to-[#E76F51]',
+    bottleAccent: '#E76F51',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'dzervenju-laima',
+    name: 'Клюквенно-лаймовый энзимный напиток',
+    subName: 'Клюква и лайм',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из дикой клюквы и свежего лайма.',
+    fullDescription: 'Освежающий живой напиток из северной клюквы, сочного лайма и цветков липы, богатый ценными органическими кислотами.',
+    ingredients: ['Дикая клюква', 'Свежий лайм', 'Цветки липы', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Источник витамина C', 'Органические кислоты', '100% натуральный состав'],
+    colorGradient: 'from-[#E63946] to-[#9D0208]',
+    bottleAccent: '#9D0208',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'abolu-kanela-biosvaigums',
+    name: 'Яблочно-коричный энзимный напиток',
+    subName: 'Яблоки и цейлонская корица',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из яблок и цейлонской корицы.',
+    fullDescription: 'Мягкий пряный живой напиток из садовых яблок и настоящей цейлонской корицы с активными фруктовыми ферментами.',
+    ingredients: ['Садовые яблоки', 'Цейлонская корица', 'Кардамон', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Фруктовые ферменты', 'Натуральные пряности', 'Без консервантов'],
+    colorGradient: 'from-[#D4A373] to-[#A3B18A]',
+    bottleAccent: '#D4A373',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'abolu-vaniljas',
+    name: 'Яблочно-ванильный энзимный напиток',
+    subName: 'Яблоки и бурбонская ваниль',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из яблок, ароматной ванили и мяты.',
+    fullDescription: 'Изысканный энзимный напиток из спелых яблок, натуральной стручковой ванили, корицы и освежающей садовой мяты.',
+    ingredients: ['Яблоки', 'Корица', 'Палочки корицы', 'Натуральная ваниль', 'Мята', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Фруктовые ферменты', 'Натуральная ваниль и корица', 'Без консервантов'],
+    colorGradient: 'from-[#E07A5F] to-[#F2CC8F]',
+    bottleAccent: '#E07A5F',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'upenu-piparmetras',
+    name: 'Смородиново-мятный энзимный напиток',
+    subName: 'Черная смородина и мята',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из черной смородины и садовой мяты.',
+    fullDescription: 'Насыщенный живой напиток из сочной садовой черной смородины и свежих листьев душистой перечной мяты.',
+    ingredients: ['Черная смородина', 'Листья мяты', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Природный витамин C', 'Фруктовые ферменты', '100% натуральный состав'],
+    colorGradient: 'from-[#7209B7] to-[#3F37C9]',
+    bottleAccent: '#7209B7',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'aroniju-abolu',
+    name: 'Арониево-яблочный энзимный напиток',
+    subName: 'Черноплодная рябина и яблоки',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из аронии (черноплодной рябины) и яблок.',
+    fullDescription: 'Мощный антиоксидантный живой напиток из темных ягод черноплодной рябины и свежих местных яблок.',
+    ingredients: ['Черноплодная рябина (арония)', 'Яблоки', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Источник антиоксидантов', '100% натуральный состав'],
+    colorGradient: 'from-[#2A085C] to-[#5C1380]',
+    bottleAccent: '#5C1380',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'kirsu-avenu',
+    name: 'Вишнево-малиновый энзимный напиток',
+    subName: 'Садовая вишня и малина',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из садовой вишни и спелой малины.',
+    fullDescription: 'Яркий ягодный живой напиток из сочной спелой вишни и ароматной сладкой садовой малины.',
+    ingredients: ['Вишня', 'Малина', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Органические кислоты', 'Без искусственных добавок'],
+    colorGradient: 'from-[#9B2226] to-[#AE2012]',
+    bottleAccent: '#9B2226',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'sarkano-avenu-citronzales',
+    name: 'Малиново-лемонграссовый энзимный напиток',
+    subName: 'Малина и лемонграсс',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из малины, лемонграсса и лепестков роз.',
+    fullDescription: 'Освежающий живой напиток из сладкой малины, ароматных стеблей лемонграсса и нежных лепестков роз.',
+    ingredients: ['Малина', 'Лемонграсс', 'Лепестки роз', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Биоактивные соединения', 'Насыщен энзимами'],
+    colorGradient: 'from-[#BC4749] to-[#6A040F]',
+    bottleAccent: '#BC4749',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'piladzu-liepziedu',
+    name: 'Рябиново-липовый энзимный напиток',
+    subName: 'Дикая рябина и цветки липы',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный тонизирующий напиток из рябины и липового цвета.',
+    fullDescription: 'Традиционный живой напиток из осенней лесной рябины, медовых цветков липы и листьев малины.',
+    ingredients: ['Лесная рябина', 'Цветки липы', 'Листья малины', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Сила липового цвета', 'Источник витамина C'],
+    colorGradient: 'from-[#CB997E] to-[#6B705C]',
+    bottleAccent: '#CB997E',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'meza-ogu-priedes',
+    name: 'Энзимный напиток из лесных ягод и сосновых почек',
+    subName: 'Лесные ягоды и сосновые почки',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из диких лесных ягод и молодых сосновых почек.',
+    fullDescription: 'Северный лесной эликсир из дикой черники, ежевики и весенних молодых сосновых побегов с мятой.',
+    ingredients: ['Лесная ежевика и черника', 'Сосновые почки', 'Мята', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Лесные антиоксиданты', '100% натуральный состав'],
+    colorGradient: 'from-[#3A5A40] to-[#344E41]',
+    bottleAccent: '#3A5A40',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'rabarberu-ingvers',
+    name: 'Ревенево-имбирный энзимный напиток',
+    subName: 'Весенний ревень и имбирь',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный бодрящий напиток из ревеня и свежего имбиря.',
+    fullDescription: 'Освежающий живой напиток из сочных стеблей весеннего ревеня и пряного тертого корня имбиря.',
+    ingredients: ['Свежий ревень', 'Корень имбиря', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Живые ферменты', 'Фруктовые кислоты', '100% натуральный состав'],
+    colorGradient: 'from-[#E76F51] to-[#F4A261]',
+    bottleAccent: '#E76F51',
+    image: enzimuDzerieniImg
+  },
+  {
+    id: 'cidoniju-piladzu',
+    name: 'Цидониево-рябиновый энзимный напиток',
+    subName: 'Северная цидония и рябина',
+    price: 12.99,
+    volume: '750 ml / 500 ml',
+    shortDescription: 'Натуральный ферментированный напиток из латвийской цидонии (айвы) и рябины.',
+    fullDescription: 'Золотистый живой напиток из ароматной цидонии и ягод лесной рябины, богатый биоактивными ферментами.',
+    ingredients: ['Цидония (айва)', 'Лесная рябина', 'Натуральный мед', 'Гвоздика', 'Родниковая вода'],
+    benefits: ['Источник витамина C', 'Биоактивные ферменты', 'Без консервантов'],
+    colorGradient: 'from-[#E9C46A] to-[#D4A373]',
+    bottleAccent: '#E9C46A',
+    image: enzimuDzerieniImg
+  }
+];
+
+export const getLocalizedProducts = (lang: Language): Product[] => {
+  switch (lang) {
+    case 'EN':
+      return PRODUCTS_EN;
+    case 'RU':
+      return PRODUCTS_RU;
+    case 'LV':
+    default:
+      return PRODUCTS_LV;
+  }
+};
+
+export const PRODUCTS: Product[] = PRODUCTS_LV;
